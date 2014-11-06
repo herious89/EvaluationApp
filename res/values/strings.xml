@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PT Evaluation</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">PT Log In</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register"><b>Sign in</b> or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_forgot_password">Recover lost password</string>
+    <string name="login_progress_signing_in">Signing in&#8230;</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="title_form_list">Forms</string>
+    <string name="title_form_detail">Form Detail</string>
+    
+    <string name="title_section1">Per-visit Form</string>
+    <string name="title_section2">Quarterly Assessment Form</string>
+    <string name="title_section3">Secant Method</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+
+    <!-- Colors -->
+    <color name="white">#F2F2F2</color>
+    <color name="black">#333333</color>
+    <color name="purewhite">#FFFFFF</color>
+    <color name="gray">#DBDBDB</color>
+    <color name="darkgray">#8B8B8B</color>
+    <color name="teal">#226D4C</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#4A708B</color>
+    <color name="lightblue1">#077ea7</color>
+    <color name="lightblue2">#0099CC</color>
+    <color name="lightblue3">#3faaf4</color>
+    <color name="orange">#fb9a24</color>
+
+</resources>
