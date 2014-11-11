@@ -109,7 +109,7 @@ public class Patient {
 		return mHeight;
 	}
 		
-	public void setHight(double xHeight) {
+	public void setHeight(double xHeight) {
 		mHeight = xHeight;
 	}
 	
@@ -174,7 +174,7 @@ public class Patient {
 	}
 		
 	public void setDescriptionOfInjury(String xDescriptionOfInjury) {
-		mDOB = xDescriptionOfInjury;
+		mDescriptionOfInjury = xDescriptionOfInjury;
 	}
 	
 	public boolean getRecievedTherapy() {
