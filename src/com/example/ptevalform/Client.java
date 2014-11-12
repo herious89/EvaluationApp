@@ -2,11 +2,11 @@ package com.example.ptevalform;
 
 import java.util.ArrayList;
 
-public class Patient {
+public class Client {
 	private int mPatientNumber;
 	private String mPTName;
-	private String mfirstName;
-	private String mlastName;
+	String mFirstName;
+	String mLastName;
 	private String mOccupation;
 	private String mDOB;
 	private int mAge; 
@@ -35,7 +35,7 @@ public class Patient {
 	private ArrayList<String> mPreMedIntervention;
 	private ArrayList<String> mMedInformation;
 	
-	public Patient(int xPatientNumber,
+	public Client(int xPatientNumber,
 				String xPTName,
 				String xFirstName, 
 				String xLastName, 
@@ -43,8 +43,8 @@ public class Patient {
 				String xDOB) {
 		mPatientNumber = xPatientNumber;
 		mPTName = xPTName;
-		mfirstName = xFirstName;
-		mlastName = xLastName;
+		mFirstName = xFirstName;
+		mLastName = xLastName;
 		mOccupation = xOccupation;
 		mDOB = xDOB;
 	}
@@ -66,19 +66,19 @@ public class Patient {
 	}
 	
 	public String getFirstName() {
-		return mfirstName;
+		return mFirstName;
 	}
 	
 	public void setFirstName(String xFirstName) {
-		mfirstName = xFirstName;
+		mFirstName = xFirstName;
 	}
 	
 	public String getLastName() {
-		return mlastName;
+		return mLastName;
 	}
 
 	public void setLastName(String xLastName) {
-		mlastName = xLastName;
+		mLastName = xLastName;
 	}
 	
 	public String getOccupation() {

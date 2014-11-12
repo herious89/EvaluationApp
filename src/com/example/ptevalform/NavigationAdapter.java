@@ -7,13 +7,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class CustomAdapter extends BaseAdapter {
+public class NavigationAdapter extends BaseAdapter {
 
 	private static final String[] Method = { "Per-visit", "Quarterly Assessment"};
 	private static final String[] STT = { "1", "2"};
 	private LayoutInflater mInflater;
 	
-	public CustomAdapter(Context context) {
+	public NavigationAdapter(Context context) {
 		mInflater = LayoutInflater.from(context);
 	}
 
@@ -36,7 +36,7 @@ public class CustomAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parentView) {
 		ListHolder holder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.listview, null);
+			convertView = mInflater.inflate(R.layout.list_navigation, null);
 			holder = new ListHolder();
 			holder.sNumber = (TextView) convertView.findViewById(R.id.textview1);
 			holder.sName = (TextView) convertView.findViewById(R.id.textview2);
