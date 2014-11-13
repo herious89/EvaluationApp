@@ -3,7 +3,7 @@ package com.example.ptevalform;
 import java.util.ArrayList;
 
 public class Client {
-	private int mPatientNumber;
+	private int mClientNumber;
 	private String mPTName;
 	String mFirstName;
 	String mLastName;
@@ -35,13 +35,13 @@ public class Client {
 	private ArrayList<String> mPreMedIntervention;
 	private ArrayList<String> mMedInformation;
 	
-	public Client(int xPatientNumber,
+	public Client(int xClientNumber,
 				String xPTName,
 				String xFirstName, 
 				String xLastName, 
 				String xOccupation,
 				String xDOB) {
-		mPatientNumber = xPatientNumber;
+		mClientNumber = xClientNumber;
 		mPTName = xPTName;
 		mFirstName = xFirstName;
 		mLastName = xLastName;
@@ -49,12 +49,12 @@ public class Client {
 		mDOB = xDOB;
 	}
 	
-	public int getPatientNumber() {
-		return mPatientNumber;
+	public int getClientNumber() {
+		return mClientNumber;
 	}
 	
-	public void setPatientNumber(int xPatientNumber) {
-		mPatientNumber = xPatientNumber;
+	public void setClientNumber(int xClientNumber) {
+		mClientNumber = xClientNumber;
 	}
 	
 	public String getPTName() {
