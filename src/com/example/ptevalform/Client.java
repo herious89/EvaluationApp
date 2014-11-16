@@ -2,11 +2,11 @@ package com.example.ptevalform;
 
 import java.util.ArrayList;
 
-public class Patient {
-	private int mPatientNumber;
+public class Client {
+	private int mClientNumber;
 	private String mPTName;
-	private String mfirstName;
-	private String mlastName;
+	String mFirstName;
+	String mLastName;
 	private String mOccupation;
 	private String mDOB;
 	private int mAge; 
@@ -35,26 +35,26 @@ public class Patient {
 	private ArrayList<String> mPreMedIntervention;
 	private ArrayList<String> mMedInformation;
 	
-	public Patient(int xPatientNumber,
+	public Client(int xClientNumber,
 				String xPTName,
 				String xFirstName, 
 				String xLastName, 
 				String xOccupation,
 				String xDOB) {
-		mPatientNumber = xPatientNumber;
+		mClientNumber = xClientNumber;
 		mPTName = xPTName;
-		mfirstName = xFirstName;
-		mlastName = xLastName;
+		mFirstName = xFirstName;
+		mLastName = xLastName;
 		mOccupation = xOccupation;
 		mDOB = xDOB;
 	}
 	
-	public int getPatientNumber() {
-		return mPatientNumber;
+	public int getClientNumber() {
+		return mClientNumber;
 	}
 	
-	public void setPatientNumber(int xPatientNumber) {
-		mPatientNumber = xPatientNumber;
+	public void setClientNumber(int xClientNumber) {
+		mClientNumber = xClientNumber;
 	}
 	
 	public String getPTName() {
@@ -66,19 +66,19 @@ public class Patient {
 	}
 	
 	public String getFirstName() {
-		return mfirstName;
+		return mFirstName;
 	}
 	
 	public void setFirstName(String xFirstName) {
-		mfirstName = xFirstName;
+		mFirstName = xFirstName;
 	}
 	
 	public String getLastName() {
-		return mlastName;
+		return mLastName;
 	}
 
 	public void setLastName(String xLastName) {
-		mlastName = xLastName;
+		mLastName = xLastName;
 	}
 	
 	public String getOccupation() {
