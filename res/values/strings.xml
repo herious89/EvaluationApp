@@ -19,7 +19,6 @@
     <string name="error_field_required">This field is required</string>
     <string name="title_form_list">Forms</string>
     <string name="title_form_detail">Form Detail</string>
-    
     <string name="title_section1">Per-visit Form</string>
     <string name="title_section2">Quarterly Assessment Form</string>
     <string name="title_section3">Secant Method</string>
@@ -41,4 +40,13 @@
     <color name="lightblue3">#3faaf4</color>
     <color name="orange">#fb9a24</color>
 
+    <string name="title_activity_display_client">Client List</string>
+    <string name="action_sort">Sort</string>
+	<string name="action_search">Search</string>
+	<string name="action_new">Add</string>	
+	<string name="action_last_name_az">Last name A-z</string>
+	<string name="action_first_name_az">First name A-z</string>
+	<string name="action_last_name_za">Last name Z-a</string>
+	<string name="action_first_name_za">First name Z-a</string>
+	
 </resources>
