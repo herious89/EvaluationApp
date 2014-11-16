@@ -30,6 +30,7 @@ proguard/
 =======
 
 project.properties
+.properties
 
 .classpath
 >>>>>>> branch 'workingbranch' of https://github.com/BrianNgo/EvaluationApp.git
