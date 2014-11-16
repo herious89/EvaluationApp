@@ -24,12 +24,3 @@ proguard/
 
 # Log Files
 *.log
-<<<<<<< HEAD
-/project.properties
-/.classpath
-=======
-
-project.properties
-
-.classpath
->>>>>>> branch 'workingbranch' of https://github.com/BrianNgo/EvaluationApp.git

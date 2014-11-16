@@ -2,7 +2,20 @@ package com.example.ptevalform;
 
 import java.util.ArrayList;
 
-public class EvaluationInfo {
+public class Patient {
+	private int mPatientNumber;
+	private String mPTName;
+	private String mfirstName;
+	private String mlastName;
+	private String mOccupation;
+	private String mDOB;
+	private int mAge; 
+	private double mHeight;
+	private double mWeight;
+	private String mPhoneNumber;
+	private String mEmployerName;
+	private boolean mIsEmployed;
+	
 	private String mIncident;
 	private String mDateOfInjury;
 	private String mDateOfSurgery;
@@ -22,22 +35,114 @@ public class EvaluationInfo {
 	private ArrayList<String> mPreMedIntervention;
 	private ArrayList<String> mMedInformation;
 	
-	public EvaluationInfo() {
-		mIncident = null;
-		mDateOfInjury = null;
-		mDateOfSurgery = null;
-		mDescriptionOfInjury = null;
-		mIsRecievedTherapy = false;
-		mDateOfTherapy = null;
-		mNumberOfVisits = 0;
-		mConditionAfterTherapy = null;
-		mSymptomps = null;
-		mBestPainDegree = 0;
-		mWorstPainDegree = 0;
-		mBetterCondition = null;
-		mWorseCondition = null;
-		mPreMedIntervention = null;
-		mMedInformation = null;
+	public Patient(int xPatientNumber,
+				String xPTName,
+				String xFirstName, 
+				String xLastName, 
+				String xOccupation,
+				String xDOB) {
+		mPatientNumber = xPatientNumber;
+		mPTName = xPTName;
+		mfirstName = xFirstName;
+		mlastName = xLastName;
+		mOccupation = xOccupation;
+		mDOB = xDOB;
+	}
+	
+	public int getPatientNumber() {
+		return mPatientNumber;
+	}
+	
+	public void setPatientNumber(int xPatientNumber) {
+		mPatientNumber = xPatientNumber;
+	}
+	
+	public String getPTName() {
+		return mPTName;
+	}
+	
+	public void setPTName(String xPTName) {
+		mPTName = xPTName;
+	}
+	
+	public String getFirstName() {
+		return mfirstName;
+	}
+	
+	public void setFirstName(String xFirstName) {
+		mfirstName = xFirstName;
+	}
+	
+	public String getLastName() {
+		return mlastName;
+	}
+
+	public void setLastName(String xLastName) {
+		mlastName = xLastName;
+	}
+	
+	public String getOccupation() {
+		return mOccupation;
+	}
+		
+	public void setOccupation(String xOccupation) {
+		mOccupation = xOccupation;
+	}
+	
+	public String getBirthDate() {
+		return mDOB;
+	}
+		
+	public void setBirthDate(String xDOB) {
+		mDOB = xDOB;
+	}
+	
+	public int getAge() {
+		return mAge;
+	}
+		
+	public void setAge(int xAge) {
+		mAge = xAge;
+	}
+	
+	public double getHeight() {
+		return mHeight;
+	}
+		
+	public void setHeight(double xHeight) {
+		mHeight = xHeight;
+	}
+	
+	public double getWeight() {
+		return mWeight;
+	}
+		
+	public void setWeight(double xWeight) {
+		mWeight = xWeight;
+	}
+	
+	public String getPhoneNumber() {
+		return mPhoneNumber;
+	}
+		
+	public void setPhoneNumber(String xPhoneNumber) {
+		mPhoneNumber = xPhoneNumber;
+	}
+	
+	public String getEmployerName() {
+		return mEmployerName;
+	}
+		
+	public void setEmployerName(String xEmployerName) {
+		mEmployerName = xEmployerName;
+	}
+	
+	public boolean getEmploymentStatus() {
+		return mIsEmployed;
+	}
+		
+	public void setEmploymentStatus(boolean xEmploymentStatus) {
+		mIsEmployed = xEmploymentStatus;
 	}
 	
 	public String getIncident() {
@@ -159,5 +264,4 @@ public class EvaluationInfo {
 	public void setMedInformation(ArrayList<String> xMedInformation) {
 		mMedInformation = xMedInformation;
 	}
-	
 }

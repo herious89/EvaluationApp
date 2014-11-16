@@ -90,7 +90,7 @@ public class FormActivity extends ActionBarActivity implements
 			// Only show items in the action bar relevant to this screen
 			// if the drawer is not showing. Otherwise, let the drawer
 			// decide what to show in the action bar.
-			getMenuInflater().inflate(R.menu.form_activity, menu);
+			getMenuInflater().inflate(R.menu.root_finder, menu);
 			restoreActionBar();
 			return true;
 		}

@@ -104,7 +104,7 @@ public class NavigationDrawerFragment extends Fragment {
 //                        getString(R.string.title_section2),
 //                        getString(R.string.title_section3),
 //                }));
-        mDrawerListView.setAdapter(new NavigationAdapter(getActionBar().getThemedContext()));
+        mDrawerListView.setAdapter(new CustomAdapter(getActionBar().getThemedContext()));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }

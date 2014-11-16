@@ -226,8 +226,7 @@ public class LoginActivity extends Activity {
 			showProgress(false);
 
 			if (success) {
-				//Intent in = new Intent(getApplicationContext(), FormActivity.class);
-				Intent in = new Intent(getApplicationContext(), DisplayClientActivity.class);
+				Intent in = new Intent(getApplicationContext(), FormActivity.class); 
 				startActivity(in);
 				finish();
 			} else {
