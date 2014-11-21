@@ -1,0 +1,171 @@
+{
+  "Patient": {
+    "FName": "Wendy",
+    "LName": "Testaburger",
+    "Occupation": "Child",
+    "PatientID": 789,
+    "Birthday": "MM-DD-YYYY",
+    "Age": 10,
+    "Height": "4'2''",
+    "Weight": 67,
+    "Phone": 1234567890,
+    "Employer": "None"
+  },
+  "EvaluationForm": {
+    "PTID": "logged in userID",
+    "Date": "DD-MM-YYYY",
+    "VersionNumber": "100",
+    "QuestionArray": [
+      {
+        "qText": "Chief complaint/ailment/injury"
+      },
+      {
+        "qText": [
+          "Date of injury?",
+          "Date of surgery"
+        ]
+      },
+      {
+        "qTextLong": "Briefly describe how you were injured"
+      },
+      {
+        "qYesNo": "Have you received therapy for this condition",
+        "qtext": [
+          "When?",
+          "How many visits?"
+        ]
+      },
+      {
+        "qSingle": "Has your condition been getting:",
+        "Answers": [
+          "same",
+          "better",
+          "worse"
+        ]
+      },
+      {
+        "qSingle": "Are your symptoms:",
+        "Answers": [
+          "Constant",
+          "Intermittent"
+        ]
+      },
+      {
+        "qSingle": "At best, mark the number that best corresponds to your pain (10 being the worst):",
+        "Answers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "qSingle": "At worst, mark the number that best corresponds to your pain (10 being the worst):",
+        "Answers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "qMulti": "What increases/makes your condition better? (Mark all that apply)",
+        "Answers": [
+          "Bending",
+          "Sitting",
+          "Rising",
+          "Prolonged Positionsing",
+          "Worse as day progresses",
+          "Movement",
+          "Standing",
+          "Walking",
+          "Lying",
+          "N/A Cast just removed",
+          "Rest",
+          "Stairs",
+          "Cough",
+          "Worse in AM",
+          "Sneeze",
+          "Deep breath",
+          "Medication",
+          "Worsein PM"
+        ]
+      },
+      {
+        "qMulti": "What decreases/makes your condition better? (Mark all that apply)",
+        "Answers": [
+          "Bending",
+          "Sitting",
+          "Rising",
+          "Changing Positions",
+          "Movement",
+          "Standing",
+          "Walking",
+          "Lying",
+          "Rest",
+          "Heat",
+          "Ice",
+          "Medication",
+          "Better in AM",
+          "Better as day progresses",
+          "Better in PM",
+          "N/A Cast just removed"
+        ]
+      },
+      {
+        "qMultiOther": "Previous medical intervention? (Mark all that apply)",
+        "Answers": [
+          "X-Ray",
+          "MRI",
+          "CAT Scan",
+          "Injections",
+          "Other"
+        ]
+      },
+      {
+        "qMulti": "Medical information:",
+        "Answers": [
+          "Difficulty swallowing",
+          "Arthritis",
+          "High blood pressure",
+          "Heart trouble",
+          "Pacemarker",
+          "Epilepsy/Seizures",
+          "History of drug abuse",
+          "Myofascial pain",
+          "Cancer",
+          "Motion sickness",
+          "Fever/Chills/Sweats",
+          "Unexplained weight loss",
+          "Blood clots",
+          "Shortness of breath",
+          "History of smoking",
+          "Diabetes",
+          "Fibromyalgia",
+          "Stroke",
+          "Osteoporosis",
+          "Anemia",
+          "Bleeding problems",
+          "HIV/Hepatitis",
+          "History of alcohol abuse",
+          "Depression/Anxiety",
+          "Pregnancy"
+        ]
+      }
+    ]
+  }
+}

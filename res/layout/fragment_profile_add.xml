@@ -1,0 +1,246 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ptevalform.RootFinderActivity$PlaceholderFragment" >
+    
+    <TextView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="10dp"
+            android:text=""
+            android:textColor="@color/red" />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/error"
+        android:id="@+id/relativeLayout1">
+
+        <TextView
+            android:id="@+id/birthDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/occupation"
+            android:paddingTop="20dp"
+            android:text="Birthdate"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/height"
+            android:paddingTop="20dp"
+            android:text="Age"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/age"
+            android:paddingTop="20dp"
+            android:text="Phone"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/employer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/phoneNumber"
+            android:paddingTop="20dp"
+            android:paddingBottom="30dp"
+            android:text="Employer"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    <EditText
+	        android:id="@+id/getAge"
+	        android:layout_width="90dp"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/age"
+	        android:layout_alignBottom="@+id/age"
+	        android:layout_alignLeft="@+id/getBirthDate"
+	        android:layout_alignRight="@+id/getBirthDate"
+	        android:ems="10"
+	        android:inputType="number" 
+	        android:background="@drawable/boxes"
+	        android:textSize="12sp"/>
+
+	    <EditText
+	        android:id="@+id/getPhoneNumber"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/phoneNumber"
+	        android:layout_alignBottom="@+id/phoneNumber"
+	        android:layout_alignParentRight="true"
+	        android:layout_toRightOf="@+id/phoneNumber"
+	        android:layout_alignLeft="@+id/getOccupation"
+	        android:ems="10"
+	        android:inputType="phone" 
+	        android:background="@drawable/boxes"
+	        android:textSize="12sp"/>
+
+	    <EditText
+	        android:id="@+id/getEmployer"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/employer"
+	        android:layout_alignBottom="@+id/employer"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignLeft="@+id/getOccupation"
+	        android:layout_toRightOf="@+id/last"
+	        android:background="@drawable/boxes"
+	        android:ems="10" 
+	        android:textSize="12sp"/>
+
+	    <EditText
+	        android:id="@+id/getFirstName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_toRightOf="@+id/occupation"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/boxes"
+	        android:ems="10"
+	        android:inputType="textPersonName" 
+	        android:textSize="12sp"/>
+
+	    <TextView
+	        android:id="@+id/first"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/getFirstName"
+	        android:layout_alignBottom="@+id/getFirstName"
+	        android:layout_alignParentLeft="true"
+	        android:text="First Name"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    <TextView
+	        android:id="@+id/last"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/getFirstName"
+	        android:paddingTop="15dp"
+	        android:text="Last Name"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    <TextView
+	        android:id="@+id/occupation"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/last"
+	        android:paddingTop="20dp"
+	        android:text="Occupation"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    <EditText
+	        android:id="@+id/getOccupation"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/occupation"
+	        android:layout_alignBottom="@+id/occupation"
+	        android:layout_alignLeft="@+id/getFirstName"
+	        android:layout_alignParentRight="true"
+	        android:background="@drawable/boxes"
+	        android:ems="10"
+	        android:inputType="textPersonName"
+	        android:textSize="12sp" />
+
+	    <EditText
+	        android:id="@+id/getLastName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/last"
+	        android:layout_alignBottom="@+id/last"
+	        android:layout_alignLeft="@+id/getOccupation"
+	        android:layout_alignParentRight="true"
+	        android:background="@drawable/boxes"
+	        android:ems="10"
+	        android:inputType="textPersonName"
+	        android:textSize="12sp" />
+
+	    <EditText
+	        android:id="@+id/getWeight"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/weight"
+	        android:layout_alignBottom="@+id/weight"
+	        android:layout_alignLeft="@+id/getHeight"
+	        android:layout_alignParentRight="true"
+	        android:background="@drawable/boxes"
+	        android:ems="10"
+	        android:textSize="12sp" />
+
+	    <EditText
+	        android:id="@+id/getHeight"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_above="@+id/getWeight"
+	        android:layout_toRightOf="@+id/weight"
+	        android:background="@drawable/boxes"
+	        android:layout_marginLeft="10dp"
+	        android:ems="10"
+	        android:textSize="12sp" >
+
+	        <requestFocus />
+	    </EditText>
+
+	    <EditText
+	        android:id="@+id/getBirthDate"
+	        android:layout_width="90dp"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/birthDate"
+	        android:layout_alignBottom="@+id/birthDate"
+	        android:layout_alignLeft="@+id/getOccupation"
+	        android:background="@drawable/boxes"
+	        android:digits="0123456789/"
+	        android:ems="10"
+	        android:hint="mm/dd/yyyy"
+	        android:imeActionLabel="Next"
+	        android:imeOptions="actionNext"
+	        android:inputType="date"
+	        android:singleLine="true"
+	        android:textSize="12sp" />
+
+	    <TextView
+	        android:id="@+id/weight"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/getAge"
+	        android:layout_alignBottom="@+id/getAge"
+	        android:layout_toRightOf="@+id/getAge"
+	        android:paddingTop="20dp"
+	        android:paddingLeft="10dp"
+	        android:text="Weight"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    <TextView
+	        android:id="@+id/height"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/getBirthDate"
+	        android:layout_alignBottom="@+id/getBirthDate"
+	        android:layout_alignLeft="@+id/weight"
+	        android:paddingLeft="10dp"
+	        android:paddingTop="20dp"
+	        android:text="Height"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+	    
+    </RelativeLayout>
+
+</RelativeLayout>

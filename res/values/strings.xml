@@ -19,9 +19,9 @@
     <string name="error_field_required">This field is required</string>
     <string name="title_form_list">Forms</string>
     <string name="title_form_detail">Form Detail</string>
-    <string name="title_section1">Per-visit Form</string>
-    <string name="title_section2">Quarterly Assessment Form</string>
-    <string name="title_section3">Secant Method</string>
+    <string name="title_section1">Client Profile</string>
+    <string name="title_section2">Per-visit Form</string>
+    <string name="title_section3">Quarterly Assessment Form</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -48,5 +48,8 @@
 	<string name="action_first_name_az">First name A-z</string>
 	<string name="action_last_name_za">Last name Z-a</string>
 	<string name="action_first_name_za">First name Z-a</string>
+	<string name="action_info_and_eval">Personal Info.\n\t\t\t&amp;\t\t\t>>>\n\tEvaluation</string>
+	<string name="add_client">Add Client</string>
+	<string name="cancel">Cancel</string>
 	
 </resources>

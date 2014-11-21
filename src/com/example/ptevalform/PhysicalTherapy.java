@@ -14,9 +14,9 @@ public class PhysicalTherapy extends User{
 		mClientList.add(xClient);
 	}
 	
-	public Client retrieveClient(int xClientNumber) {
+	public Client retrieveClient(int xClientID) {
 		for (int ii = 0; ii < mClientList.size(); ++ii) {
-			if (mClientList.get(ii).getClientNumber() == xClientNumber)
+			if (mClientList.get(ii).getClientID() == xClientID)
 				return mClientList.get(ii);
 		}
 		return null;

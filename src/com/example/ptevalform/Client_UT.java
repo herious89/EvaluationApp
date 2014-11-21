@@ -30,10 +30,10 @@ public class Client_UT {
 	}
 	
 	@Test
-	public void setAndGetClientNumberExpectEqual() {
+	public void setAndGetClientIDExpectEqual() {
 		mUT = new Client(01, "ptname", "fname", "lname", "job", "12345");
-		mUT.setClientNumber(11111);
-		assertEquals(11111, mUT.getClientNumber());
+		mUT.setClientID(11111);
+		assertEquals(11111, mUT.getClientID());
 	}
 	
 	@Test

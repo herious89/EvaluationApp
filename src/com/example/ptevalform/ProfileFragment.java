@@ -11,19 +11,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PerVisitFormFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 	Button mSubmit;
 	
     @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
            Bundle savedInstanceState) {
 
-       View rootView = inflater.inflate(R.layout.fragment_per_visit, container, false);
+       View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
        mSubmit = (Button) rootView.findViewById(R.id.btnSubmit);
        mSubmit.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getActivity(), "Successfully submitted!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "Profile Successfully editted!", Toast.LENGTH_SHORT).show();
 			}
        });
        
@@ -33,7 +33,7 @@ public class PerVisitFormFragment extends Fragment {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		((FormActivity) activity).onSectionAttached(2);
+		((FormActivity) activity).onSectionAttached(1);
 	}
 
 }
