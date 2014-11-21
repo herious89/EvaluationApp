@@ -3,11 +3,11 @@ package com.example.ptevalform;
 import java.util.ArrayList;
 
 public class Client {
-	private int mClientNumber;
 	private String mPTName;
 	String mFirstName;
 	String mLastName;
 	private String mOccupation;
+	private int mClientID;
 	private String mDOB;
 	private int mAge; 	
 	private double mHeight;
@@ -17,26 +17,26 @@ public class Client {
 	private boolean mIsEmployed;
 	private EvaluationInfo mEvaluationForm;
 	
-	public Client(int xClientNumber,
-				String xPTName,
+	public Client(int xClientID,
 				String xFirstName, 
 				String xLastName, 
 				String xOccupation,
-				String xDOB) {
-		mClientNumber = xClientNumber;
+				String xDOB,
+				String xPTName) {
+		mClientID = xClientID;
 		mPTName = xPTName;
 		mFirstName = xFirstName;
 		mLastName = xLastName;
 		mOccupation = xOccupation;
 		mDOB = xDOB;
 	}
-	
-	public int getClientNumber() {
-		return mClientNumber;
+
+	public int getClientID() {
+		return mClientID;
 	}
 	
-	public void setClientNumber(int xClientNumber) {
-		mClientNumber = xClientNumber;
+	public void setClientID(int xClientID) {
+		mClientID = xClientID;
 	}
 	
 	public String getPTName() {

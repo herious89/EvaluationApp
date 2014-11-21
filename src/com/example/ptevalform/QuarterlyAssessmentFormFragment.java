@@ -20,7 +20,7 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		((FormActivity) activity).onSectionAttached(2);
+		((FormActivity) activity).onSectionAttached(3);
 	}
 
 }

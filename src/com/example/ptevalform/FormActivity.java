@@ -4,9 +4,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import android.support.v4.widget.DrawerLayout;
 
 public class FormActivity extends ActionBarActivity implements
@@ -56,23 +58,28 @@ public class FormActivity extends ActionBarActivity implements
 		case 2:
 			mTitle = getString(R.string.title_section2);
 			break;
-//		case 3:
-//			mTitle = getString(R.string.title_section3);
-//			break;
+		case 3:
+			mTitle = getString(R.string.title_section3);
+			break;
 		}
 	}
 	
+	private Context getActionBarActivity() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public Fragment fragmentInstance(int number) {
 		switch (number) {
 		case 1:
-			mFragment = Fragment.instantiate(getApplicationContext(), PerVisitFormFragment.class.getName(), null);
+			mFragment = Fragment.instantiate(getApplicationContext(), ProfileFragment.class.getName(), null);
 			break;
 		case 2:
+			mFragment = Fragment.instantiate(getApplicationContext(), PerVisitFormFragment.class.getName(), null);
+			break;
+		case 3:
 			mFragment = Fragment.instantiate(getApplicationContext(), QuarterlyAssessmentFormFragment.class.getName(), null);
 			break;
-//		case 3:
-//			mFragment = Fragment.instantiate(getApplicationContext(), QuarterlyAssessmentFormFragment.class.getName(), null);
-//			break;
 		}
 		return mFragment;
 	}

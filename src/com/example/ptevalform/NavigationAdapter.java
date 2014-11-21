@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 public class NavigationAdapter extends BaseAdapter {
 
-	private static final String[] Method = { "Per-visit", "Quarterly Assessment"};
-	private static final String[] STT = { "1", "2"};
+	private static final String[] PAGE = {"Client Profile", "Per-visit", "Quarterly Assessment"};
+	private static final String[] STT = { "1", "2", "3"};
 	private LayoutInflater mInflater;
 	
 	public NavigationAdapter(Context context) {
@@ -19,7 +19,7 @@ public class NavigationAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return Method.length;
+		return PAGE.length;
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class NavigationAdapter extends BaseAdapter {
 		}
 
 		holder.sNumber.setText(STT[position]);
-		holder.sName.setText(Method[position]);
+		holder.sName.setText(PAGE[position]);
 		return convertView;
 	}
 

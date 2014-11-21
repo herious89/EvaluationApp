@@ -6,15 +6,25 @@ import java.util.Comparator;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DisplayClientActivity extends ActionBarActivity {
@@ -27,9 +37,9 @@ public class DisplayClientActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_client);
 	    
-		mClientArray.add(new Client(777, "Will", "Du", "A", "Dota Player", "2/20/2020"));
-		mClientArray.add(new Client(777, "Will", "Xanh", "Rauma", "Dota Player", "2/15/1920"));
-		mClientArray.add(new Client(777, "Will", "Hummer", "xDriver", "Dota Player", "3/10/1220"));
+		mClientArray.add(new Client(777, "Du", "A", "Dota Player", "2/20/2020", "Will"));
+		mClientArray.add(new Client(777, "Xanh", "Rauma", "Dota Player", "2/15/1920", "Will"));
+		mClientArray.add(new Client(777, "Hummer", "xDriver", "Dota Player", "3/10/1220", "Will"));
 		mAdapter = new ClientAdapter(this, R.layout.list_client, mClientArray);
 		ListView mList = (ListView) findViewById(R.id.listView);
 		
@@ -57,6 +67,14 @@ public class DisplayClientActivity extends ActionBarActivity {
 	    // Inflate the menu items for use in the action bar
 	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.display_client, menu);
+
+		// Associate searchable configuration with the SearchView
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		SearchView searchView = (SearchView) menu.findItem(R.id.action_search)
+				.getActionView();
+		searchView.setSearchableInfo(searchManager
+				.getSearchableInfo(getComponentName()));
+		
 	    return true;
 	} 
 	
@@ -81,6 +99,7 @@ public class DisplayClientActivity extends ActionBarActivity {
 	        case R.id.action_search:
 	            return true;
 	        case R.id.action_new:
+	        	addNewClient();
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -88,6 +107,70 @@ public class DisplayClientActivity extends ActionBarActivity {
 	}
 	
 	// implement add new client for menu
+	private void addNewClient() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(DisplayClientActivity.this);
+        alert.setTitle("New Client Profile");
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.fragment_profile_add, null);
+        alert.setView(alertLayout);
+                
+        final EditText firstName = (EditText) alertLayout.findViewById(R.id.getFirstName);
+        final EditText lastName = (EditText) alertLayout.findViewById(R.id.getLastName);
+        final EditText occupation = (EditText) alertLayout.findViewById(R.id.getOccupation);
+        final EditText birthDate = (EditText) alertLayout.findViewById(R.id.getBirthDate);
+        final EditText age = (EditText) alertLayout.findViewById(R.id.getAge);
+        final EditText height = (EditText) alertLayout.findViewById(R.id.getHeight);
+        final EditText weight = (EditText) alertLayout.findViewById(R.id.getWeight);
+        final EditText phone = (EditText) alertLayout.findViewById(R.id.getPhoneNumber);
+        final EditText employer = (EditText) alertLayout.findViewById(R.id.getEmployer);
+        final TextView error = (TextView) alertLayout.findViewById(R.id.error);
+        
+        alert.setPositiveButton(R.string.add_client, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        
+        alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+				dialog.cancel();
+            }
+        });
+        
+        final AlertDialog dialog = alert.create();
+        dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener()
+        {            
+            @Override
+            public void onClick(View v)
+            {
+                Boolean closeDialog = false;
+                // checking input error
+                String fName = firstName.getText().toString();
+                String lName = lastName.getText().toString();
+                String occ = occupation.getText().toString();
+                String DOB = birthDate.getText().toString();
+                
+            	if (fName.equals(""))
+            		error.setText("First name cannot be blank!");
+            	else if (lName.equals(""))
+            		error.setText("Last name cannot be blank!");
+            	else if (occ.equals(""))
+            		error.setText("Occupation cannot be blank!");
+            	else if (DOB.equals(""))
+            		error.setText("Date of birth cannot be blank!");
+            	else {
+            		// get current PTName
+            		String ptName = "Will";
+            		mClientArray.add(new Client(777, fName, lName, occ, DOB, ptName));
+            		mAdapter.notifyDataSetChanged();
+            		closeDialog = true;
+            	}
+                if(closeDialog)
+                    dialog.dismiss();
+                //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
+            }
+        });
+	}
 	
 	private void sortClients(int selection) {
 		switch (selection) {

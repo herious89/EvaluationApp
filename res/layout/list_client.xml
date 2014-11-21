@@ -43,23 +43,21 @@
         android:paddingLeft="10sp"
         android:text="Age"
         android:textSize="12sp" />
-    
- 
+
     <TextView
         android:id="@+id/evaluation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/age"
         android:layout_alignParentRight="true"
-        android:layout_alignBaseline="@+id/birthDate"
+        android:layout_marginRight="16dp"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:marqueeRepeatLimit="marquee_forever"
         android:scrollHorizontally="true"
-        android:layout_marginTop="5dp"
-        android:singleLine="true"
-        android:text="Evaluation >>>"
-        android:textSize="15sp"
+        android:text="@string/action_info_and_eval"
         android:textColor="#fb9a24"
+        android:textSize="15sp"
         android:textStyle="bold" />
         
 </RelativeLayout>
