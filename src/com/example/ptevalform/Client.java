@@ -1,5 +1,7 @@
 package com.example.ptevalform;
 
+import java.util.ArrayList;
+
 public class Client {
 	private String mPTName;
 	String mFirstName;
@@ -8,8 +10,8 @@ public class Client {
 	private int mClientID;
 	private String mDOB;
 	private int mAge; 	
-	private String mHeight;
-	private String mWeight;
+	private double mHeight;
+	private double mWeight;
 	private String mPhoneNumber;
 	private String mEmployerName;
 	private boolean mIsEmployed;
@@ -20,11 +22,6 @@ public class Client {
 				String xLastName, 
 				String xOccupation,
 				String xDOB,
-				int xAge,
-				String xHeight,
-				String xWeight,
-				String xPhoneNumber,
-				String xEmployerName,
 				String xPTName) {
 		mClientID = xClientID;
 		mPTName = xPTName;
@@ -32,11 +29,6 @@ public class Client {
 		mLastName = xLastName;
 		mOccupation = xOccupation;
 		mDOB = xDOB;
-		mAge = xAge;
-		mHeight = xHeight;
-		mWeight = xWeight;
-		mPhoneNumber = xPhoneNumber;
-		mEmployerName = xEmployerName;
 	}
 
 	public int getClientID() {
@@ -95,19 +87,19 @@ public class Client {
 		mAge = xAge;
 	}
 	
-	public String getHeight() {
+	public double getHeight() {
 		return mHeight;
 	}
 		
-	public void setHeight(String xHeight) {
+	public void setHeight(double xHeight) {
 		mHeight = xHeight;
 	}
 	
-	public String getWeight() {
+	public double getWeight() {
 		return mWeight;
 	}
 		
-	public void setWeight(String xWeight) {
+	public void setWeight(double xWeight) {
 		mWeight = xWeight;
 	}
 	

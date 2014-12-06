@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ptevalform.FormActivity$PlaceholderFragment" >
+    tools:context="com.example.ptevalform.RootFinderActivity$PlaceholderFragment" >
 
     <Button
         android:id="@+id/btnSubmit"
@@ -16,87 +16,86 @@
         android:background="@drawable/greenbox"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="Edit"
+        android:text="Submit Form"
         android:textColor="@color/white" />
-    
-    <TextView
-        android:id="@+id/error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnSubmit"
-        android:layout_centerHorizontal="true"
-        android:paddingBottom="10dp"
-        android:text=""
-        android:textColor="@color/red" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/error"
+        android:layout_above="@+id/btnSubmit"
         android:layout_alignLeft="@+id/btnSubmit"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/btnSubmit" android:id="@+id/relativeLayout1">
 
         <TextView
-            android:id="@+id/dob"
+            android:id="@+id/TextView03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/occu"
+            android:layout_below="@+id/TextView01"
             android:paddingTop="20dp"
             android:text="Birthdate"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-            android:id="@+id/text_age"
+            android:id="@+id/TextView05"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/text_height"
+            android:layout_below="@+id/TextView04"
             android:paddingTop="20dp"
             android:text="Age"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-            android:id="@+id/text_phone"
+            android:id="@+id/TextView07"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/text_age"
+            android:layout_below="@+id/TextView05"
             android:paddingTop="20dp"
-            android:text="Phone"
+            android:text="Home/Cell Phone"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-            android:id="@+id/text_employer"
+            android:id="@+id/TextView08"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/text_phone"
+            android:layout_below="@+id/TextView07"
             android:paddingTop="20dp"
             android:text="Employer"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <TextView
+            android:id="@+id/TextView09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/TextView08"
+            android:paddingTop="20dp"
+            android:text="Currently Employed?"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
 	    <EditText
-	        android:id="@+id/age"
+	        android:id="@+id/editText3"
 	        android:layout_width="90dp"
 	        android:layout_height="30dp"
-	        android:layout_alignBaseline="@+id/text_age"
-	        android:layout_alignBottom="@+id/text_age"
-	        android:layout_alignLeft="@+id/birth_date"
-	        android:layout_alignRight="@+id/birth_date"
+	        android:layout_alignBaseline="@+id/TextView05"
+	        android:layout_alignBottom="@+id/TextView05"
+	        android:layout_alignLeft="@+id/editText2"
+	        android:layout_alignRight="@+id/editText2"
 	        android:ems="10"
 	        android:inputType="number" 
 	        android:background="@drawable/boxes"
 	        android:textSize="12dp"/>
 
 	    <EditText
-	        android:id="@+id/phone"
+	        android:id="@+id/editText5"
 	        android:layout_width="wrap_content"
 	        android:layout_height="30dp"
-	        android:layout_alignLeft="@+id/first_name"
-	        android:layout_alignBaseline="@+id/text_phone"
-	        android:layout_alignBottom="@+id/text_phone"
+	        android:layout_alignBaseline="@+id/TextView07"
+	        android:layout_alignBottom="@+id/TextView07"
 	        android:layout_alignParentRight="true"
 	        android:layout_toRightOf="@+id/TextView09"
 	        android:ems="10"
@@ -105,25 +104,24 @@
 	        android:textSize="12dp"/>
 
 	    <EditText
-	        android:id="@+id/employer"
+	        android:id="@+id/editText6"
 	        android:layout_width="wrap_content"
 	        android:layout_height="30dp"
-	        android:layout_alignLeft="@+id/first_name"
-	        android:layout_alignBaseline="@+id/text_employer"
-	        android:layout_alignBottom="@+id/text_employer"
+	        android:layout_alignBaseline="@+id/TextView08"
+	        android:layout_alignBottom="@+id/TextView08"
 	        android:layout_alignParentRight="true"
-	        android:layout_toRightOf="@+id/name1"
+	        android:layout_toRightOf="@+id/TextView02"
 	        android:background="@drawable/boxes"
 	        android:ems="10" 
 	        android:textSize="12dp"/>
 
 	    <EditText
-	        android:id="@+id/first_name"
+	        android:id="@+id/EditText03"
 	        android:layout_width="wrap_content"
 	        android:layout_height="30dp"
 	        android:layout_alignParentRight="true"
 	        android:layout_alignParentTop="true"
-	        android:layout_toRightOf="@+id/occu"
+	        android:layout_toRightOf="@+id/TextView01"
 	        android:layout_marginLeft="10dp"
 	        android:background="@drawable/boxes"
 	        android:ems="10"
@@ -131,78 +129,42 @@
 	        android:textSize="12dp"/>
 
 	    <TextView
-	        android:id="@+id/name"
+	        android:id="@+id/TextView10"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignBaseline="@+id/first_name"
-	        android:layout_alignBottom="@+id/first_name"
+	        android:layout_alignBaseline="@+id/EditText03"
+	        android:layout_alignBottom="@+id/EditText03"
 	        android:layout_alignParentLeft="true"
 	        android:text="First Name"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
-	        android:id="@+id/name1"
+	        android:id="@+id/TextView02"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="true"
-	        android:layout_below="@+id/first_name"
+	        android:layout_below="@+id/EditText03"
 	        android:paddingTop="15dp"
 	        android:text="Last Name"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
-	        android:id="@+id/occu"
+	        android:id="@+id/TextView01"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="true"
-	        android:layout_below="@+id/id"
+	        android:layout_below="@+id/TextView02"
 	        android:paddingTop="20dp"
 	        android:text="Occupation"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <EditText
-	        android:id="@+id/occupation"
+	        android:id="@+id/EditText02"
 	        android:layout_width="wrap_content"
 	        android:layout_height="30dp"
-	        android:layout_alignBaseline="@+id/occu"
-	        android:layout_alignBottom="@+id/occu"
-	        android:layout_alignLeft="@+id/first_name"
-	        android:layout_alignParentRight="true"
-	        android:background="@drawable/boxes"
-	        android:ems="10"
-	        android:inputType="textPersonName"
-	        android:textSize="12dp" />
-	    
-		<TextView
-	        android:id="@+id/id"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_below="@+id/name1"
-	        android:paddingTop="20dp"
-	        android:text="Client ID"
-	        android:textAppearance="?android:attr/textAppearanceSmall" />
-	    
-	  	<EditText
-	        android:id="@+id/clientID"
-	        android:layout_width="wrap_content"
-	        android:layout_height="30dp"
-	        android:layout_alignBaseline="@+id/id"
-	        android:layout_alignBottom="@+id/id"
-	        android:layout_alignLeft="@+id/first_name"
-	        android:layout_alignParentRight="true"
-	        android:background="@drawable/boxes"
-	        android:ems="10"
-	        android:inputType="textPersonName"
-	        android:textSize="12sp" />
-
-	    <EditText
-	        android:id="@+id/last_name"
-	        android:layout_width="wrap_content"
-	        android:layout_height="30dp"
-	        android:layout_alignBaseline="@+id/name1"
-	        android:layout_alignBottom="@+id/name1"
-	        android:layout_alignLeft="@+id/occupation"
+	        android:layout_alignBaseline="@+id/TextView01"
+	        android:layout_alignBottom="@+id/TextView01"
+	        android:layout_alignLeft="@+id/EditText03"
 	        android:layout_alignParentRight="true"
 	        android:background="@drawable/boxes"
 	        android:ems="10"
@@ -210,12 +172,25 @@
 	        android:textSize="12dp" />
 
 	    <EditText
-	        android:id="@+id/weight"
+	        android:id="@+id/EditText01"
 	        android:layout_width="wrap_content"
 	        android:layout_height="30dp"
-	        android:layout_alignBaseline="@+id/text_weight"
-	        android:layout_alignBottom="@+id/text_weight"
-	        android:layout_alignLeft="@+id/height"
+	        android:layout_alignBaseline="@+id/TextView02"
+	        android:layout_alignBottom="@+id/TextView02"
+	        android:layout_alignLeft="@+id/EditText02"
+	        android:layout_alignParentRight="true"
+	        android:background="@drawable/boxes"
+	        android:ems="10"
+	        android:inputType="textPersonName"
+	        android:textSize="12dp" />
+
+	    <EditText
+	        android:id="@+id/editText4"
+	        android:layout_width="wrap_content"
+	        android:layout_height="30dp"
+	        android:layout_alignBaseline="@+id/TextView06"
+	        android:layout_alignBottom="@+id/TextView06"
+	        android:layout_alignLeft="@+id/editText1"
 	        android:layout_alignParentRight="true"
 	        android:background="@drawable/boxes"
 	        android:ems="10"
@@ -223,12 +198,11 @@
 	        android:textSize="12dp" />
 
 	    <EditText
-	        android:id="@+id/height"
+	        android:id="@+id/editText1"
 	        android:layout_width="wrap_content"
 	        android:layout_height="30dp"
-	        android:layout_alignBaseline="@+id/text_height"
-	        android:layout_above="@+id/height"
-	        android:layout_toRightOf="@+id/text_weight"
+	        android:layout_above="@+id/editText4"
+	        android:layout_toRightOf="@+id/TextView06"
 	        android:background="@drawable/boxes"
 	        android:layout_marginLeft="10dp"
 	        android:ems="10"
@@ -239,12 +213,12 @@
 	    </EditText>
 
 	    <EditText
-	        android:id="@+id/birth_date"
+	        android:id="@+id/editText2"
 	        android:layout_width="90dp"
 	        android:layout_height="30dp"
-	        android:layout_alignBaseline="@+id/dob"
-	        android:layout_alignBottom="@+id/dob"
-	        android:layout_alignLeft="@+id/occupation"
+	        android:layout_alignBaseline="@+id/TextView03"
+	        android:layout_alignBottom="@+id/TextView03"
+	        android:layout_alignLeft="@+id/EditText02"
 	        android:background="@drawable/boxes"
 	        android:digits="0123456789/"
 	        android:ems="10"
@@ -256,28 +230,56 @@
 	        android:textSize="12dp" />
 
 	    <TextView
-	        android:id="@+id/text_weight"
+	        android:id="@+id/TextView06"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignBaseline="@+id/age"
-	        android:layout_alignBottom="@+id/age"
-	        android:layout_toRightOf="@+id/age"
+	        android:layout_alignBaseline="@+id/editText3"
+	        android:layout_alignBottom="@+id/editText3"
+	        android:layout_toRightOf="@+id/editText3"
 	        android:paddingTop="20dp"
 	        android:paddingLeft="10dp"
-	        android:text="height"
+	        android:text="Weight"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
-	        android:id="@+id/text_height"
+	        android:id="@+id/TextView04"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignBaseline="@+id/birth_date"
-	        android:layout_alignBottom="@+id/birth_date"
-	        android:layout_alignLeft="@+id/text_weight"
+	        android:layout_alignBaseline="@+id/editText2"
+	        android:layout_alignBottom="@+id/editText2"
+	        android:layout_alignLeft="@+id/TextView06"
 	        android:paddingLeft="10dp"
 	        android:paddingTop="20dp"
 	        android:text="Height"
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    <RadioButton
+	        android:id="@+id/radioButton1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/TextView09"
+	        android:layout_marginTop="16dp"
+	        android:text="Yes" />
+
+	    <RadioButton
+	        android:id="@+id/RadioButton01"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/radioButton1"
+	        android:layout_alignBottom="@+id/radioButton1"
+	        android:layout_toRightOf="@+id/TextView02"
+	        android:text="No" />
+
+	    <RadioButton
+	        android:id="@+id/RadioButton02"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/RadioButton01"
+	        android:layout_alignBottom="@+id/RadioButton01"
+	        android:layout_toRightOf="@+id/RadioButton01"
+	        android:text="Modified" />
+
     </RelativeLayout>
 
 
