@@ -9,7 +9,22 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:background="#ffffff"
-        android:layout_height="wrap_content">
+        android:layout_height="fill_parent">
+        
+        <TextView
+            android:id="@+id/questionaires"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Evaluation"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/lightblue2"
+            android:textSize="20sp" />
 
         <!--
          As the main content view, the view below consumes the entire
@@ -19,7 +34,7 @@
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
