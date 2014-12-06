@@ -4,11 +4,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 import android.support.v4.widget.DrawerLayout;
 
 public class FormActivity extends ActionBarActivity implements
@@ -63,11 +62,6 @@ public class FormActivity extends ActionBarActivity implements
 			break;
 		}
 	}
-	
-	private Context getActionBarActivity() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public Fragment fragmentInstance(int number) {
 		switch (number) {
@@ -110,7 +104,10 @@ public class FormActivity extends ActionBarActivity implements
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_log_out) {
+			Intent intent = new Intent(this, LoginActivity.class);
+			startActivity(intent);
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
