@@ -33,6 +33,7 @@ public class FormActivity extends ActionBarActivity implements
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
+
 		mTitle = String.format(getResources().getString(R.string.title_section1));	
 
 		// Set up the drawer.
@@ -109,6 +110,9 @@ public class FormActivity extends ActionBarActivity implements
 			startActivity(intent);
 			finish();
 			return true;
+		}
+		if (id == R.id.action_back) {
+			super.onBackPressed();
 		}
 		return super.onOptionsItemSelected(item);
 	}

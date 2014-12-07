@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -74,6 +75,12 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         // Select either the default item (0) or the last selected item.
+        Intent in = getActivity().getIntent();
+        switch (in.getExtras().getInt("section")) {
+        	case 0 : mCurrentSelectedPosition = 0; break;
+        	case 1 : mCurrentSelectedPosition = 1; break;
+        	case 2 : mCurrentSelectedPosition = 2; break;
+        }
         selectItem(mCurrentSelectedPosition);
     }
 

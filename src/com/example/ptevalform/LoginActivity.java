@@ -30,6 +30,9 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Interpolator;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -74,13 +77,24 @@ public class LoginActivity extends Activity {
 
 		setContentView(R.layout.activity_login);
 
+	    Animation a = AnimationUtils.loadAnimation(this, R.anim.push_down);
+	    a.setInterpolator(new Interpolator() {
+	        private final int frameCount = 8;
+
+	        @Override
+	        public float getInterpolation(float input) {
+	            return (float)Math.floor(input*frameCount)/frameCount;
+	        }
+	    });
+	    a.setDuration(100);
+		
 		// Set up the login form.
 		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
 		mEmailView = (EditText) findViewById(R.id.email);
 		mEmailView.setText(mEmail);
 		
 		// get database from internal storage
-		 deleteFile(FILENAME);
+		// deleteFile(FILENAME);
 		String[] fileList = fileList();
 		boolean isFileFound = false;
 		for (String s : fileList) {
@@ -365,12 +379,15 @@ public class LoginActivity extends Activity {
 					Intent in = new Intent(getApplicationContext(), ManagerActivity.class);
 					in.putExtra("name", mManagerName);
 					startActivity(in);
+					overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 				}
 				else {
 					//Intent in = new Intent(getApplicationContext(), FormActivity.class);
 					Intent in = new Intent(getApplicationContext(), DisplayClientActivity.class);
 					in.putExtra("position", mPosition);
+					in.putExtra("isManager", false);
 					startActivity(in);
+					overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 				}
 			} else {
 				mEmailView

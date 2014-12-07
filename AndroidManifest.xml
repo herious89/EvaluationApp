@@ -44,6 +44,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ptevalform.LoginActivity" />
         </activity>
+        <activity
+            android:name=".ViewFormActivity"
+            android:label="@string/title_activity_view_form" >
+        </activity>
     </application>
 
 </manifest>

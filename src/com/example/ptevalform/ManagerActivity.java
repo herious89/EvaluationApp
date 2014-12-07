@@ -33,6 +33,9 @@ public class ManagerActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_manager);
+		// disable home button
+		getSupportActionBar ().setHomeButtonEnabled(false);
+		getSupportActionBar ().setDisplayHomeAsUpEnabled(false);
 		
 		mPTArray = new ArrayList<String>();
 		
@@ -82,7 +85,9 @@ public class ManagerActivity extends ActionBarActivity {
 					int position, long id) {
 				Intent in = new Intent(getApplicationContext(), DisplayClientActivity.class);
 				in.putExtra("position", position);
+				in.putExtra("isManager", true);
 				startActivity(in);
+				overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 			}
 		});
 		
@@ -105,6 +110,7 @@ public class ManagerActivity extends ActionBarActivity {
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 			finish();
+			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

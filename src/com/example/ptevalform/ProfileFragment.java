@@ -35,6 +35,7 @@ public class ProfileFragment extends Fragment {
 	private JSONObject mDatabase;
 	final static String FILENAME = "database.json";
 	private String filedir;
+	private boolean isManager;
 	
     @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +56,7 @@ public class ProfileFragment extends Fragment {
        final TextView tError = (TextView) rootView.findViewById(R.id.error);
        
        Intent in = getActivity().getIntent();
+       isManager = in.getExtras().getBoolean("isManager");
        mPosition = in.getExtras().getInt("position");
        mPatientPosition = in.getExtras().getInt("patientPosition");
        int clientID = in.getExtras().getInt("clientID");
@@ -131,22 +133,6 @@ public class ProfileFragment extends Fragment {
             	else if (cPhone.equals(""))
             		tError.setText("Phone number cannot be empty!");
             	else {				
-            		Toast.makeText(getActivity(), "Client Profile Successfully Editted!", Toast.LENGTH_SHORT).show();
-//            		Intent intent = new Intent(getActivity().getApplicationContext(),
-//            				DisplayClientActivity.class);
-//            		intent.putExtra("patient_position", position);
-//            		intent.putExtra("clientID", cID);
-//            		intent.putExtra("lastName", cLastName);
-//            		intent.putExtra("firstName", cFirstName);
-//            		intent.putExtra("occupation", cOccupation);
-//            		intent.putExtra("birthDate", cBirthDate);
-//            		intent.putExtra("age", cAge);
-//            		intent.putExtra("height", tHeight.getText().toString());
-//            		intent.putExtra("weight", tWeight.getText().toString());
-//            		intent.putExtra("phone", cPhone);
-//            		intent.putExtra("employer", tEmployer.getText().toString());
-//            		startActivity(intent);
-            		
         			try {
         				JSONObject newClient = new JSONObject();
         				JSONObject clientInfo = new JSONObject();
@@ -175,6 +161,11 @@ public class ProfileFragment extends Fragment {
         				bufferedWriter.write(mDatabase.toString());
         				bufferedWriter.close();
         				output.close();
+        				
+    					Intent in = new Intent(getActivity(), DisplayClientActivity.class);
+    					in.putExtra("position", mPosition);
+    					in.putExtra("isManager", isManager);
+    					startActivity(in);
         			} catch (JSONException e) {
         				Log.d("Error: ", "JSON");
         			} catch (IOException e) {

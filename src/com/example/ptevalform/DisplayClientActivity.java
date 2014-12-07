@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -33,9 +34,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SearchView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
@@ -49,12 +54,20 @@ public class DisplayClientActivity extends ActionBarActivity {
 	private String ptName = "";
 	final static String FILENAME = "database.json";
 	int mPosition;
+	private boolean isManager;
+	private Activity mActivity = this;
+	final String[] PTCHOICE = {"Edit Client's Info.", "Per-visit Evaluation", "Quarterly Assessment",
+			"View Per-visit Form & Feedback", "View Quarterly Assessment & Feedback"};
+	final String[] MANAGERCHOICE = {"Edit Client's Info.", "Per-visit Evaluation", "Quarterly Assessment",
+					"View Per-visit Form & Provide Feedback", "View Quarterly Assessment & Provide Feedback"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_client);
-		// need to implement call back
+		// disable home button
+		getSupportActionBar ().setHomeButtonEnabled(false);
+		getSupportActionBar ().setDisplayHomeAsUpEnabled(false);
 	}
 	
 	@Override
@@ -63,6 +76,8 @@ public class DisplayClientActivity extends ActionBarActivity {
 		mClientArray = new ArrayList<Client>();
 		Intent in = getIntent();
 		mPosition = in.getExtras().getInt("position");
+		isManager = in.getExtras().getBoolean("isManager");
+		
 		try {
 			String database = "";
 			InputStream is  = new BufferedInputStream(new FileInputStream((getFilesDir() + "/" + FILENAME)));
@@ -127,9 +142,7 @@ public class DisplayClientActivity extends ActionBarActivity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				
-				// need to pass client info
-				
-				Intent in = new Intent(getApplicationContext(), FormActivity.class);
+				final Intent in = new Intent(getApplicationContext(), FormActivity.class);
 				Client client = mClientArray.get(position);
 				in.putExtra("ptPosition", mPosition);
 				in.putExtra("patientPosition", position);
@@ -144,7 +157,148 @@ public class DisplayClientActivity extends ActionBarActivity {
 				in.putExtra("phone", client.getPhoneNumber());
 				in.putExtra("employer", client.getEmployerName());
 				in.putExtra("filedir", getFilesDir() + "");
-				startActivity(in);
+				
+            	final Intent intent = new Intent(getApplicationContext(), ViewFormActivity.class);
+				intent.putExtra("filedir", getFilesDir() + "");
+				intent.putExtra("ptPosition", mPosition);
+				intent.putExtra("patientPosition", position);
+				
+				if (isManager == false) {
+					in.putExtra("isManager", false);
+					intent.putExtra("isManager", false);
+					AlertDialog.Builder alert = new AlertDialog.Builder(DisplayClientActivity.this);
+					alert.setTitle("What would you like to do?");
+			        LayoutInflater inflater = getLayoutInflater();
+			        View alertLayout = inflater.inflate(R.layout.fragment_pt_choice, null);
+			     	    	    	
+			        // create radiobutton for choices
+			        LinearLayout mLinearLayout = (LinearLayout) alertLayout.findViewById(R.id.linearLayout);
+	    	    	final ArrayList<RadioButton> radioList = new ArrayList<RadioButton>();
+	    	    	LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+	    	    	params.leftMargin = 5;
+	    	    	RadioGroup group = new RadioGroup(mActivity);
+	    	    	for (int i = 0; i < PTCHOICE.length; i++) {
+		    	    	RadioButton radio = new RadioButton(mActivity);
+		    	    	radio.setText(PTCHOICE[i]);
+		    	    	group.addView(radio, i, params);
+		    	    	radioList.add(radio);
+	    	    	}
+	    	    	mLinearLayout.addView(group, params);
+	    	    	
+			        alert.setView(alertLayout);
+			        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			            public void onClick(DialogInterface dialog, int id) {
+			            	int choice = -1;
+			            	for (int i = 0; i < radioList.size(); i++)
+			            		if (radioList.get(i).isChecked())
+			            			choice = i;
+			            	
+			            	switch (choice) {
+			            		case -1 : dialog.cancel(); break;
+			            		case 0 : 
+			            			in.putExtra("section", 0);
+			            			startActivity(in);
+			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+			            			break;
+			            		case 1 : 
+			            			in.putExtra("section", 1);
+			            			startActivity(in);
+			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+			            			break;
+			            		case 2 : 
+		            				in.putExtra("section", 2);
+		            				startActivity(in);
+		            				overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+		            				break;
+			            		case 3 : 
+			            			intent.putExtra("per-visit", true);
+	            					startActivity(intent);
+	            					overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+		            				break;
+			            		case 4 : 
+			            			intent.putExtra("per-visit", false);
+			            			startActivity(intent);
+			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+		            				break;
+			            	}
+			            }
+			        });
+			        alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+			            public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+			            }
+			        });
+			        alert.show();
+				}
+				// manager view
+				else {
+					in.putExtra("isManager", true);
+					intent.putExtra("isManager", true);
+					AlertDialog.Builder alert = new AlertDialog.Builder(DisplayClientActivity.this);
+					alert.setTitle("What would you like to do?");
+			        
+			        LayoutInflater inflater = getLayoutInflater();
+			        View alertLayout = inflater.inflate(R.layout.fragment_pt_choice, null);
+			        
+			        // create radiobutton for choices
+			        LinearLayout mLinearLayout = (LinearLayout) alertLayout.findViewById(R.id.linearLayout);
+	    	    	final ArrayList<RadioButton> radioList = new ArrayList<RadioButton>();
+	    	    	LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+	    	    	params.leftMargin = 5;
+	    	    	RadioGroup group = new RadioGroup(mActivity);
+	    	    	for (int i = 0; i < MANAGERCHOICE.length; i++) {
+		    	    	RadioButton radio = new RadioButton(mActivity);
+		    	    	radio.setText(MANAGERCHOICE[i]);
+		    	    	group.addView(radio, i, params);
+		    	    	radioList.add(radio);
+	    	    	}
+	    	    	mLinearLayout.addView(group, params);
+	    	    	
+			        alert.setView(alertLayout);
+			        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			            public void onClick(DialogInterface dialog, int id) {
+			            	int choice = -1;
+			            	for (int i = 0; i < radioList.size(); i++)
+			            		if (radioList.get(i).isChecked())
+			            			choice = i;
+			            	
+			            	switch (choice) {
+			            		case -1 : dialog.cancel(); break;
+			            		case 0 : 
+			            			in.putExtra("section", 0);
+			            			startActivity(in);
+			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+			            			break;
+			            		case 1 : 
+			            			in.putExtra("section", 1);
+			            			startActivity(in);
+			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+			            			break;
+			            		case 2 : 
+		            				in.putExtra("section", 2);
+		            				startActivity(in);
+		            				overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+		            				break;
+			            		case 3 :
+			            			intent.putExtra("per-visit", true); 
+			            			startActivity(intent);
+			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+			            			break;
+			            		case 4 : 
+			            			intent.putExtra("per-visit", false);
+			            			startActivity(intent);
+			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+			            			break;
+			            	}
+			            }
+			        });
+					alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+			            public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+			            }
+			        });
+			        alert.show();
+				}
 			}
 		});
 	}
@@ -153,7 +307,10 @@ public class DisplayClientActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    // Inflate the menu items for use in the action bar
 	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.display_client, menu);
+	    if (isManager)
+	    	 inflater.inflate(R.menu.display_client_manager, menu);
+	    else
+	    	inflater.inflate(R.menu.display_client, menu);
 
 		// Associate searchable configuration with the SearchView
 		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -190,6 +347,9 @@ public class DisplayClientActivity extends ActionBarActivity {
 	            return true;
 	        case R.id.action_log_out:
 	        	logout();
+	        	return true;
+	        case R.id.action_back:
+	        	super.onBackPressed();
 	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -289,7 +449,8 @@ public class DisplayClientActivity extends ActionBarActivity {
                 				clientInfo.put("Employer", employer);
 
                 				newClient.put("PatientInfo", clientInfo);
-                				newClient.put("EvaluationForm", "");
+                				newClient.put("Per-visit", "");
+                				newClient.put("QuarterlyAssessment", "");
                 				
                 				mDatabase.getJSONArray("PT").getJSONObject(mPosition).
                 										getJSONArray("Patient").put(newClient);
@@ -370,5 +531,6 @@ public class DisplayClientActivity extends ActionBarActivity {
 		Intent intent = new Intent(this, LoginActivity.class);
 		startActivity(intent);
 		finish();
+		overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 	}
 }
