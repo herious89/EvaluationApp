@@ -14,6 +14,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,6 +54,7 @@ public class DisplayClientActivity extends ActionBarActivity {
 	private JSONArray patientArray;
 	private String ptName = "";
 	final static String FILENAME = "database.json";
+	private HashMap<Integer, Integer> mMapPosition = new HashMap<Integer, Integer>();
 	int mPosition;
 	private boolean isManager;
 	private Activity mActivity = this;
@@ -122,6 +124,7 @@ public class DisplayClientActivity extends ActionBarActivity {
 				
 				mClientArray.add(new Client(id, firstName, lastName, occupation, birthDate,
 						age, height, weight, phone, employer, ptName));
+				mMapPosition.put(id, i);
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -144,8 +147,8 @@ public class DisplayClientActivity extends ActionBarActivity {
 				
 				final Intent in = new Intent(getApplicationContext(), FormActivity.class);
 				Client client = mClientArray.get(position);
-				in.putExtra("ptPosition", mPosition);
-				in.putExtra("patientPosition", position);
+				in.putExtra("position", mPosition);
+				in.putExtra("patientPosition", mMapPosition.get(client.getClientID()));
 				in.putExtra("clientID", client.getClientID());
 				in.putExtra("lastName", client.getLastName());
 				in.putExtra("firstName", client.getFirstName());
@@ -160,8 +163,8 @@ public class DisplayClientActivity extends ActionBarActivity {
 				
             	final Intent intent = new Intent(getApplicationContext(), ViewFormActivity.class);
 				intent.putExtra("filedir", getFilesDir() + "");
-				intent.putExtra("ptPosition", mPosition);
-				intent.putExtra("patientPosition", position);
+				intent.putExtra("position", mPosition);
+				intent.putExtra("patientPosition", mMapPosition.get(client.getClientID()));
 				
 				if (isManager == false) {
 					in.putExtra("isManager", false);
@@ -531,6 +534,6 @@ public class DisplayClientActivity extends ActionBarActivity {
 		Intent intent = new Intent(this, LoginActivity.class);
 		startActivity(intent);
 		finish();
-		overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 }

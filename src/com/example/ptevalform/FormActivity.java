@@ -109,6 +109,7 @@ public class FormActivity extends ActionBarActivity implements
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 			finish();
+			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 			return true;
 		}
 		if (id == R.id.action_back) {

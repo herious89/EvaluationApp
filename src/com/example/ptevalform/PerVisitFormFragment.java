@@ -148,8 +148,10 @@ public class PerVisitFormFragment extends Fragment {
        
        Button mSubmit = new Button(getActivity());
        mSubmit.setText("Submit Form");
+       mSubmit.setTextColor(getResources().getColor(R.color.purewhite));
+       params.topMargin = 20;
        mLinearLayout.addView(mSubmit, params);
-       
+       mSubmit.setBackground(getResources().getDrawable(R.drawable.greenbox));
        mSubmit.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {

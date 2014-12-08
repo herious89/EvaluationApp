@@ -17,12 +17,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,7 +37,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ViewFormActivity extends Activity {
+public class ViewFormActivity extends FragmentActivity {
 	final static String FILENAME = "database.json";
 	private JSONObject mDatabase;
 	private int mPosition, mPatientPosition;
@@ -138,6 +138,7 @@ public class ViewFormActivity extends Activity {
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 			finish();
+			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 			return true;
 		}
 		if (id == R.id.action_back) {
@@ -299,7 +300,9 @@ public class ViewFormActivity extends Activity {
 
 		    			Button btnFeedback = new Button(getActivity());
 		    			btnFeedback.setText("Submit Feedback");
-		    			
+		    			btnFeedback.setTextColor(getResources().getColor(R.color.purewhite));
+		    		    params.topMargin = 20;
+		    			btnFeedback.setBackground(getResources().getDrawable(R.drawable.greenbox));
 		    			mLinearLayout.addView(btnFeedback, params);
 		    			btnFeedback.setOnClickListener(new OnClickListener(){
 		    				@Override
@@ -356,7 +359,10 @@ public class ViewFormActivity extends Activity {
 
 		    			Button btnBack = new Button(getActivity());
 		    			btnBack.setText("Go Back");
+		    			btnBack.setTextColor(getResources().getColor(R.color.purewhite));
+		    		    params.topMargin = 20;
 		    			params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+		    			btnBack.setBackground(getResources().getDrawable(R.drawable.greenbox));
 		    			mLinearLayout.addView(btnBack, params);
 		    			btnBack.setOnClickListener(new OnClickListener(){
 		    				@Override

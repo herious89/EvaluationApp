@@ -12,8 +12,6 @@ public class Client {
 	private String mWeight;
 	private String mPhoneNumber;
 	private String mEmployerName;
-	private boolean mIsEmployed;
-	private EvaluationInfo mEvaluationForm;
 	
 	public Client(int xClientID,
 				String xFirstName, 
@@ -125,21 +123,5 @@ public class Client {
 		
 	public void setEmployerName(String xEmployerName) {
 		mEmployerName = xEmployerName;
-	}
-	
-	public boolean getEmploymentStatus() {
-		return mIsEmployed;
-	}
-		
-	public void setEmploymentStatus(boolean xEmploymentStatus) {
-		mIsEmployed = xEmploymentStatus;
-	}
-	
-	public void setEvaluationForm(EvaluationInfo xEvaluationForm) {
-		mEvaluationForm = xEvaluationForm;
-	}
-	
-	public EvaluationInfo getEvaluationForm() {
-		return mEvaluationForm;
 	}
 }

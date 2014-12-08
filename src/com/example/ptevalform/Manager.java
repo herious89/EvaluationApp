@@ -10,10 +10,6 @@ public class Manager extends User{
 		mPTList = new ArrayList<PhysicalTherapy>();
 	}
 	
-	public void addPhysicalTherapy(PhysicalTherapy xPhysicalTherapy) {
-		mPTList.add(xPhysicalTherapy);
-	}
-	
 	public PhysicalTherapy retrievePhysicalTherapy(int xEmployeeID) {
 		for (int ii = 0; ii < mPTList.size(); ++ii) {
 			if (mPTList.get(ii).getEmployeeID() == xEmployeeID)

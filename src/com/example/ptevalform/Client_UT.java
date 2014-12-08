@@ -102,12 +102,4 @@ public class Client_UT {
 		assertEquals("Valid Employer Name", mUT.getEmployerName());
 	}
 	
-	@Test
-	public void setAndGetClientEmploymentStatusExpectTrue() {
-		mUT = new Client(01, "fname", "lname", "job", "1/1/1111", 20, "5'4\"", 
-				"205", "222-333-4444", "employer", "ptname");
-		mUT.setEmploymentStatus(true);
-		assertTrue(mUT.getEmploymentStatus());
-	}
-	
 }
