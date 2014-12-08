@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="16"
         android:targetSdkVersion="19" />
 
     <application
@@ -43,6 +43,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ptevalform.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".ViewFormActivity"
+            android:label="@string/title_activity_view_form" >
         </activity>
     </application>
 

@@ -50,6 +50,7 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 	private HashMap<Integer, ArrayList<EditText>> mMapEditText = new HashMap<Integer, ArrayList<EditText>>();
 	private HashMap<Integer, ArrayList<CheckBox>> mMapCheckBox = new HashMap<Integer, ArrayList<CheckBox>>();
 	private HashMap<Integer, ArrayList<RadioButton>> mMapRadioButton = new HashMap<Integer, ArrayList<RadioButton>>();
+	private boolean isManager;
 	
 	@Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +60,7 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
        filedir = in.getExtras().getString("filedir");
        mPosition = in.getExtras().getInt("position");
        mPatientPosition = in.getExtras().getInt("patientPosition");
+       isManager = in.getExtras().getBoolean("isManager");
        try {
     	   String database = "";
     	   InputStream is  = new BufferedInputStream(new FileInputStream(filedir + "/" + FILENAME));
@@ -93,11 +95,12 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
     		   mQuestion.getJSONObject(i);
     		   TextView text = new TextView(getActivity());
     		   text.setText((i+1) + ". " + mQuestion.getJSONObject(i).getString("Title"));
+    		   text.setTextColor(getResources().getColor(R.color.lightblue2));
     	       mLinearLayout.addView(text, params);
     	       
     	       try {
     	    	   LinearLayout.LayoutParams radioParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    	    	   params.leftMargin = 5;
+    	    	   radioParams.leftMargin = 2;
     	    	   JSONArray radioArray =  mQuestion.getJSONObject(i).getJSONArray("RadioButton");
     	    	   RadioGroup group = new RadioGroup(getActivity());
     	    	   group.setOrientation(0);
@@ -144,15 +147,18 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
        
        Button mSubmit = new Button(getActivity());
        mSubmit.setText("Submit Form");
+       mSubmit.setTextColor(getResources().getColor(R.color.purewhite));
+       params.topMargin = 20;
        mLinearLayout.addView(mSubmit, params);
-       
+       mSubmit.setBackground(getResources().getDrawable(R.drawable.greenbox));
        mSubmit.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				String answer = "";
 				JSONArray questionArray = new JSONArray();
 				
-				for (int i = 0; i < mQuestion.length(); i++) {			
+				for (int i = 0; i < mQuestion.length(); i++) {	
+					answer = "";
 					ArrayList<RadioButton> radioList = mMapRadioButton.get(i);
 					if (radioList != null) {
 						for (int j = 0; j < radioList.size(); j++)
@@ -167,8 +173,14 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 					if (checkList != null) {
 						for (int j = 0; j < checkList.size(); j++)
 						{
-							if (checkList.get(j).isChecked()) 
-								answer += ", " + checkList.get(j).getText().toString();
+							if (answer.equals("")) {
+								if (checkList.get(j).isChecked()) 
+									answer = checkList.get(j).getText().toString();
+							}
+							else {
+								if (checkList.get(j).isChecked())
+									answer += ", " + checkList.get(j).getText().toString();
+							}
 						}
 					}
 					
@@ -177,25 +189,33 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 					{
 						for (int j = 0; j < editTextList.size(); j++)
 						{
-							if (checkList != null || radioList != null)
-								answer += ", " +  editTextList.get(j).getText().toString();
-							else
+							if (answer.equals(""))
 								answer = editTextList.get(j).getText().toString();
+							else
+								answer += ", " +  editTextList.get(j).getText().toString();
 						}
 					}
 					try {
 						JSONObject question = new JSONObject();
 						question.put("Title", mQuestion.getJSONObject(i).getString("Title"));
-						question.put("Text", answer);
+						question.put("Answer", answer);
 						questionArray.put(i, question);
 					} catch (JSONException e) { } ;
 				}
 
 				try {
-					mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
-						getJSONObject(mPatientPosition).getJSONObject("EvaluationForm").remove("QuestionArray");
-					mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
-					getJSONObject(mPatientPosition).getJSONObject("EvaluationForm").put("QuestionArray", questionArray);
+					
+					// change
+//					mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
+//						getJSONObject(mPatientPosition).getJSONObject("QuarterlyAssessment").remove("QuestionArray");
+//					mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
+//					getJSONObject(mPatientPosition).getJSONObject("QuarterlyAssessment").put("QuestionArray", questionArray);
+					JSONObject form = mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
+							getJSONObject(mPatientPosition).getJSONObject("QuarterlyAssessment");
+					form.remove("QuestionArray");
+					form.put("Date", "MM/DD/YYYY");
+					form.put("VersionNumber", mDatabase.getJSONObject("DefaultForm").getString("VersionNumber"));
+					form.put("QuestionArray", questionArray);
 					
 					// save to file
 					OutputStream output  = new BufferedOutputStream(new FileOutputStream(filedir + "/" + FILENAME));
@@ -210,6 +230,7 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 					Toast.makeText(getActivity(), "Successfully submitted!", Toast.LENGTH_SHORT).show();
 					Intent in = new Intent(getActivity(), DisplayClientActivity.class);
 					in.putExtra("position", mPosition);
+					in.putExtra("isManager", isManager);
 					startActivity(in);
 				} catch (JSONException e) {Log.d("this:", " error"); }
 				catch (IOException e) {Log.d("ioexception", "eesdf"); };
