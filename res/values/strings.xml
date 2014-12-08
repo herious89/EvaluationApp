@@ -20,8 +20,8 @@
     <string name="title_form_list">Forms</string>
     <string name="title_form_detail">Form Detail</string>
     <string name="title_section1">Client Profile</string>
-    <string name="title_section2">Per-visit Evaluation Form</string>
-    <string name="title_section3">Quarterly Assessment Evaluation Form</string>
+    <string name="title_section2">Per-visit Evaluation</string>
+    <string name="title_section3">Quarterly Assessment Evaluation</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -48,10 +48,13 @@
     <string name="action_first_name_az">First name A-z</string>
     <string name="action_last_name_za">Last name Z-a</string>
     <string name="action_first_name_za">First name Z-a</string>
-    <string name="action_info_and_eval">Personal Info.\n\t\t\t&amp;\t\t\t>>>\n\tEvaluation</string>
+    <string name="action_info_and_eval">Evaluation</string>
     <string name="add_client">Add Client</string>
     <string name="cancel">Cancel</string>
     <string name="action_home">Home</string>
     <string name="title_activity_manager">Manager</string>
+    <string name="eval_client">Evaluate</string>
+    <string name="title_activity_view_form">View Form &amp; Give Feedback</string>
+    <string name="action_back">Back</string>
 
 </resources>

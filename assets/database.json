@@ -18,66 +18,127 @@
             "Phone": "1234567890",
             "Employer": "None"
           },
-          "EvaluationForm": {
-            "PTID": "logged in userID",
+          "Per-visit": {
             "Date": "DD-MM-YYYY",
             "VersionNumber": "100",
             "QuestionArray": [
               {
                 "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
-                "Text": "complain"
+                "Answer": "complain"
               },
               {
                 "Title": "DATE OF INJURY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "DATE OF SURGERY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
-                "Text": "Briefly describe"
+                "Answer": "Briefly describe"
               },
               {
                 "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
-                "Text": "Yes"
+                "Answer": "Yes"
               },
               {
                 "Title": "HAS YOUR CONDITION BEEN GETTING:",
-                "Text": "Worse"
+                "Answer": "Worse"
               },
               {
                 "Title": "ARE YOUR SYMPTOMS:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
-                "Text": "goal"
+                "Answer": "goal"
               },
               {
                 "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
+              }
+            ]
+          },
+          "QuarterlyAssessment": {
+            "Date": "DD-MM-YYYY",
+            "VersionNumber": "100",
+            "QuestionArray": [
+              {
+                "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
+                "Answer": "complain"
+              },
+              {
+                "Title": "DATE OF INJURY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "DATE OF SURGERY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
+                "Answer": "Briefly describe"
+              },
+              {
+                "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
+                "Answer": "Yes"
+              },
+              {
+                "Title": "HAS YOUR CONDITION BEEN GETTING:",
+                "Answer": "Worse"
+              },
+              {
+                "Title": "ARE YOUR SYMPTOMS:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
+                "Answer": "goal"
+              },
+              {
+                "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
+                "Answer": ""
               }
             ]
           }
@@ -95,66 +156,127 @@
             "Phone": "1234567890",
             "Employer": "None"
           },
-          "EvaluationForm": {
-            "PTID": "logged in userID",
+          "Per-visit": {
             "Date": "DD-MM-YYYY",
             "VersionNumber": "100",
             "QuestionArray": [
               {
                 "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
-                "Text": "complain"
+                "Answer": "complain"
               },
               {
                 "Title": "DATE OF INJURY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "DATE OF SURGERY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
-                "Text": "Briefly describe"
+                "Answer": "Briefly describe"
               },
               {
                 "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
-                "Text": "Yes"
+                "Answer": "Yes"
               },
               {
                 "Title": "HAS YOUR CONDITION BEEN GETTING:",
-                "Text": "Worse"
+                "Answer": "Worse"
               },
               {
                 "Title": "ARE YOUR SYMPTOMS:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
-                "Text": "goal"
+                "Answer": "goal"
               },
               {
                 "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
+              }
+            ]
+          },
+          "QuarterlyAssessment": {
+            "Date": "DD-MM-YYYY",
+            "VersionNumber": "100",
+            "QuestionArray": [
+              {
+                "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
+                "Answer": "complain"
+              },
+              {
+                "Title": "DATE OF INJURY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "DATE OF SURGERY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
+                "Answer": "Briefly describe"
+              },
+              {
+                "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
+                "Answer": "Yes"
+              },
+              {
+                "Title": "HAS YOUR CONDITION BEEN GETTING:",
+                "Answer": "Worse"
+              },
+              {
+                "Title": "ARE YOUR SYMPTOMS:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
+                "Answer": "goal"
+              },
+              {
+                "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
+                "Answer": ""
               }
             ]
           }
@@ -172,66 +294,127 @@
             "Phone": "1234567890",
             "Employer": "None"
           },
-          "EvaluationForm": {
-            "PTID": "logged in userID",
+          "Per-visit": {
             "Date": "DD-MM-YYYY",
             "VersionNumber": "100",
             "QuestionArray": [
               {
                 "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
-                "Text": "complain"
+                "Answer": "complain"
               },
               {
                 "Title": "DATE OF INJURY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "DATE OF SURGERY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
-                "Text": "Briefly describe"
+                "Answer": "Briefly describe"
               },
               {
                 "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
-                "Text": "Yes"
+                "Answer": "Yes"
               },
               {
                 "Title": "HAS YOUR CONDITION BEEN GETTING:",
-                "Text": "Worse"
+                "Answer": "Worse"
               },
               {
                 "Title": "ARE YOUR SYMPTOMS:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
-                "Text": "goal"
+                "Answer": "goal"
               },
               {
                 "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
+              }
+            ]
+          },
+          "QuarterlyAssessment": {
+            "Date": "DD-MM-YYYY",
+            "VersionNumber": "100",
+            "QuestionArray": [
+              {
+                "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
+                "Answer": "complain"
+              },
+              {
+                "Title": "DATE OF INJURY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "DATE OF SURGERY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
+                "Answer": "Briefly describe"
+              },
+              {
+                "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
+                "Answer": "Yes"
+              },
+              {
+                "Title": "HAS YOUR CONDITION BEEN GETTING:",
+                "Answer": "Worse"
+              },
+              {
+                "Title": "ARE YOUR SYMPTOMS:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
+                "Answer": "goal"
+              },
+              {
+                "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
+                "Answer": ""
               }
             ]
           }
@@ -256,66 +439,127 @@
             "Phone": "1234567890",
             "Employer": "None"
           },
-          "EvaluationForm": {
-            "PTID": "logged in userID",
+          "Per-visit": {
             "Date": "DD-MM-YYYY",
             "VersionNumber": "100",
             "QuestionArray": [
               {
                 "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
-                "Text": "complain"
+                "Answer": "complain"
               },
               {
                 "Title": "DATE OF INJURY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "DATE OF SURGERY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
-                "Text": "Briefly describe"
+                "Answer": "Briefly describe"
               },
               {
                 "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
-                "Text": "Yes"
+                "Answer": "Yes"
               },
               {
                 "Title": "HAS YOUR CONDITION BEEN GETTING:",
-                "Text": "Worse"
+                "Answer": "Worse"
               },
               {
                 "Title": "ARE YOUR SYMPTOMS:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
-                "Text": "goal"
+                "Answer": "goal"
               },
               {
                 "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
+              }
+            ]
+          },
+          "QuarterlyAssessment": {
+            "Date": "DD-MM-YYYY",
+            "VersionNumber": "100",
+            "QuestionArray": [
+              {
+                "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
+                "Answer": "complain"
+              },
+              {
+                "Title": "DATE OF INJURY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "DATE OF SURGERY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
+                "Answer": "Briefly describe"
+              },
+              {
+                "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
+                "Answer": "Yes"
+              },
+              {
+                "Title": "HAS YOUR CONDITION BEEN GETTING:",
+                "Answer": "Worse"
+              },
+              {
+                "Title": "ARE YOUR SYMPTOMS:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
+                "Answer": "goal"
+              },
+              {
+                "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
+                "Answer": ""
               }
             ]
           }
@@ -333,66 +577,127 @@
             "Phone": "1234567890",
             "Employer": "None"
           },
-          "EvaluationForm": {
-            "PTID": "logged in userID",
+          "Per-visit": {
             "Date": "DD-MM-YYYY",
             "VersionNumber": "100",
             "QuestionArray": [
               {
                 "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
-                "Text": "complain"
+                "Answer": "complain"
               },
               {
                 "Title": "DATE OF INJURY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "DATE OF SURGERY",
-                "Text": "Date"
+                "Answer": "Date"
               },
               {
                 "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
-                "Text": "Briefly describe"
+                "Answer": "Briefly describe"
               },
               {
                 "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
-                "Text": "Yes"
+                "Answer": "Yes"
               },
               {
                 "Title": "HAS YOUR CONDITION BEEN GETTING:",
-                "Text": "Worse"
+                "Answer": "Worse"
               },
               {
                 "Title": "ARE YOUR SYMPTOMS:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
-                "ArrayText": ""
+                "Answer": ""
               },
               {
                 "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
-                "Text": "goal"
+                "Answer": "goal"
               },
               {
                 "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
-                "Text": ""
+                "Answer": ""
+              }
+            ]
+          },
+          "QuarterlyAssessment": {
+            "Date": "DD-MM-YYYY",
+            "VersionNumber": "100",
+            "QuestionArray": [
+              {
+                "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
+                "Answer": "complain"
+              },
+              {
+                "Title": "DATE OF INJURY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "DATE OF SURGERY",
+                "Answer": "Date"
+              },
+              {
+                "Title": "BRIEFLY DESCRIBE HOW YOU WERE INJURED",
+                "Answer": "Briefly describe"
+              },
+              {
+                "Title": "HAVE YOU RECEIVED THERAPY FOR THIS CONDITION?",
+                "Answer": "Yes"
+              },
+              {
+                "Title": "HAS YOUR CONDITION BEEN GETTING:",
+                "Answer": "Worse"
+              },
+              {
+                "Title": "ARE YOUR SYMPTOMS:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT BEST:",
+                "Answer": ""
+              },
+              {
+                "Title": "MARK THE NUMBER THAT BEST CORRESPONDS TO YOUR PAIN AT WORSE:",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT DECREASES/MAKES YOUR CONDITION BETTER? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT INCREASES/MAKES YOUR CONDITION WORSE? (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "PREVIOUS MEDICAL INTERVENTION (MARK ALL THAT APPLY)",
+                "Answer": ""
+              },
+              {
+                "Title": "WHAT ARE YOUR GOALS TO BE ACHIEVED BY THE END OF THERAPY?",
+                "Answer": "goal"
+              },
+              {
+                "Title": "MEDICAL INFORMATION (MARK ALL THAT APPLY)",
+                "Answer": ""
               }
             ]
           }
@@ -407,10 +712,10 @@
       "managerName": "Daniel"
     }
   ],
-  
   "DefaultForm": {
     "Date": "DD-MM-YYYY",
-    "VersionNumber": "100",
+    "VersionNumber": "1",
+    "Feedback" : "Comments",
     "QuestionArray": [
       {
         "Title": "CHIEF COMPLAINT/AILMENT/INJURY",
