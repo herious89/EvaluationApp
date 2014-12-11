@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bg2"
     tools:context="com.example.ptevalform.FormActivity$PlaceholderFragment" >
 
     <Button
@@ -27,6 +28,7 @@
         android:layout_centerHorizontal="true"
         android:paddingBottom="10dp"
         android:text=""
+        android:textStyle="bold"
         android:textColor="@color/red" />
 
     <RelativeLayout
@@ -41,40 +43,52 @@
             android:id="@+id/dob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/occu"
             android:paddingTop="20dp"
-            android:text="Birthdate"
+            android:text="Birthday"
+            android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/text_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/text_height"
             android:paddingTop="20dp"
             android:text="Age"
+            android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/text_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/text_age"
             android:paddingTop="20dp"
             android:text="Phone"
+            android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/text_employer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/text_phone"
             android:paddingTop="20dp"
             android:text="Employer"
+            android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <EditText
@@ -138,6 +152,8 @@
 	        android:layout_alignBottom="@+id/first_name"
 	        android:layout_alignParentLeft="true"
 	        android:text="First Name"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
@@ -148,6 +164,8 @@
 	        android:layout_below="@+id/first_name"
 	        android:paddingTop="15dp"
 	        android:text="Last Name"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
@@ -158,6 +176,8 @@
 	        android:layout_below="@+id/id"
 	        android:paddingTop="20dp"
 	        android:text="Occupation"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <EditText
@@ -181,6 +201,8 @@
 	        android:layout_below="@+id/name1"
 	        android:paddingTop="20dp"
 	        android:text="Client ID"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 	    
 	  	<EditText
@@ -216,7 +238,9 @@
 	        android:layout_alignBaseline="@+id/text_weight"
 	        android:layout_alignBottom="@+id/text_weight"
 	        android:layout_alignLeft="@+id/height"
+	        android:layout_alignStart="@+id/height"
 	        android:layout_alignParentRight="true"
+	        android:layout_alignParentEnd="true"
 	        android:background="@drawable/boxes"
 	        android:ems="10"
 	        android:inputType="number"
@@ -229,8 +253,10 @@
 	        android:layout_alignBaseline="@+id/text_height"
 	        android:layout_above="@+id/height"
 	        android:layout_toRightOf="@+id/text_weight"
+	        android:layout_toEndOf="@+id/text_weight"
 	        android:background="@drawable/boxes"
 	        android:layout_marginLeft="10dp"
+	        android:layout_marginStart="10dp"
 	        android:ems="10"
 	        android:inputType="number"
 	        android:textSize="12dp" >
@@ -245,13 +271,13 @@
 	        android:layout_alignBaseline="@+id/dob"
 	        android:layout_alignBottom="@+id/dob"
 	        android:layout_alignLeft="@+id/occupation"
+	        android:layout_alignStart="@+id/occupation"
 	        android:background="@drawable/boxes"
 	        android:digits="0123456789/"
 	        android:ems="10"
 	        android:hint="mm/dd/yyyy"
 	        android:imeActionLabel="Next"
 	        android:imeOptions="actionNext"
-	        android:inputType="textCapWords|textPersonName"
 	        android:singleLine="true"
 	        android:textSize="12dp" />
 
@@ -262,9 +288,15 @@
 	        android:layout_alignBaseline="@+id/age"
 	        android:layout_alignBottom="@+id/age"
 	        android:layout_toRightOf="@+id/age"
+	        android:layout_toEndOf="@+id/age"
 	        android:paddingTop="20dp"
+	        android:paddingStart="10dp"
+	        android:paddingEnd="0dp"
 	        android:paddingLeft="10dp"
-	        android:text="height"
+	        android:paddingRight="0dp"
+	        android:text="Weight"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
@@ -274,9 +306,15 @@
 	        android:layout_alignBaseline="@+id/birth_date"
 	        android:layout_alignBottom="@+id/birth_date"
 	        android:layout_alignLeft="@+id/text_weight"
+	        android:layout_alignStart="@+id/text_weight"
 	        android:paddingLeft="10dp"
+	        android:paddingStart="10dp"
+	        android:paddingEnd="0dp"
+	        android:paddingRight="0dp"
 	        android:paddingTop="20dp"
 	        android:text="Height"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 

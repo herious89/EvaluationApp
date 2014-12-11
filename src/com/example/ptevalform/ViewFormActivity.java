@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -39,10 +40,10 @@ import android.widget.Toast;
 
 public class ViewFormActivity extends FragmentActivity {
 	final static String FILENAME = "database.json";
-	private JSONObject mDatabase;
-	private int mPosition, mPatientPosition;
-	private String filedir;
-	private JSONArray mQuestion;
+	private static JSONObject sDatabase;
+	private static int sPosition, sPatientPosition, sFormPosition;
+	private static String filedir;
+	private static JSONArray sQuestion, sFormArray;
 	private static boolean isManager, sFormType;
 	
 	/**
@@ -63,12 +64,13 @@ public class ViewFormActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_form);
-		
+				
 		// get database
 		Intent in = getIntent();
 		filedir = in.getExtras().getString("filedir");
-		mPosition = in.getExtras().getInt("position");
-		mPatientPosition = in.getExtras().getInt("patientPosition");
+		sPosition = in.getExtras().getInt("position");
+		sPatientPosition = in.getExtras().getInt("patientPosition");
+		sFormPosition = in.getExtras().getInt("formPosition");
 		isManager = in.getExtras().getBoolean("isManager");
 		if (in.getExtras().getBoolean("per-visit")) {
 			sFormType = true;
@@ -93,13 +95,16 @@ public class ViewFormActivity extends FragmentActivity {
 				stringBuilder.append(receiveString);
 			}
 			database = stringBuilder.toString();
-			mDatabase = new JSONObject(database);
-			if (sFormType)
-				mQuestion = mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
-					getJSONObject(mPatientPosition).getJSONObject("Per-visit").getJSONArray("QuestionArray");
+			sDatabase = new JSONObject(database);
+			if (sFormType) {
+				sFormArray = sDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
+						getJSONObject(sPatientPosition).getJSONArray("Per-visit");
+			}
 			else
-				mQuestion = mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
-				getJSONObject(mPatientPosition).getJSONObject("QuarterlyAssessment").getJSONArray("QuestionArray");
+				sFormArray = sDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
+				getJSONObject(sPatientPosition).getJSONArray("QuarterlyAssessment");
+			
+			sQuestion = sFormArray.getJSONObject(sFormPosition).getJSONArray("QuestionArray");
 			is.close();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -143,6 +148,7 @@ public class ViewFormActivity extends FragmentActivity {
 		}
 		if (id == R.id.action_back) {
 			super.onBackPressed();
+			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -162,16 +168,15 @@ public class ViewFormActivity extends FragmentActivity {
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a PlaceholderFragment (defined as a static inner class
 			// below).
-			return PlaceholderFragment.newInstance(position, getCount(), mQuestion.toString(), filedir,
-					mPosition, mPatientPosition, mDatabase.toString());
+			return PlaceholderFragment.newInstance(position, getCount());
 			
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
+			// Show total pages.
 			int count = 0;
-			for (int i = 0; i <= mQuestion.length(); i = i +7) {
+			for (int i = 0; i <= sQuestion.length(); i = i +7) {
 				count += 1;
 			}
 			return count;
@@ -196,8 +201,7 @@ public class ViewFormActivity extends FragmentActivity {
 	 * A placeholder fragment containing a simple view.
 	 */
 	public static class PlaceholderFragment extends Fragment {
-		private static int sPosition, sPatientPosition, sSize;
-		private static String sFiledir, sData, sQuestion;
+		private static int sSize;
 		
 		/**
 		 * The fragment argument representing the section number for this
@@ -208,24 +212,13 @@ public class ViewFormActivity extends FragmentActivity {
 		/**
 		 * Returns a new instance of this fragment for the given section number.
 		 */
-		public static PlaceholderFragment newInstance(int sectionNumber, int count, String question,
-				String xFiledir, int xPosition, int xPatientPosition, String data) {
+		public static PlaceholderFragment newInstance(int sectionNumber, int count) {
 			PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-//			args.putInt("size", count);
-//			args.putString("question", question);
-//			args.putString("filedir", xFiledir);
-//			args.putInt("mPosition", xPosition);
-//			args.putInt("mPatientPosition", xPatientPosition);
 			fragment.setArguments(args);
 			if (sectionNumber == 0) {
-				sPosition = xPosition;
-				sPatientPosition = xPatientPosition;
 				sSize = count;
-				sQuestion = question;
-				sFiledir = xFiledir;
-				sData = data;
 			}
 			return fragment;
 		}
@@ -239,8 +232,6 @@ public class ViewFormActivity extends FragmentActivity {
 			View rootView = inflater.inflate(R.layout.fragment_view_form,
 					container, false);
 			int fragNumber = getArguments().getInt(ARG_SECTION_NUMBER);
-//			int size = getArguments().getInt("size");
-//			String data = getArguments().getString("question");
 			
 			LinearLayout mLinearLayout = (LinearLayout) rootView.findViewById(R.id.linearLayout);
 		    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -251,15 +242,14 @@ public class ViewFormActivity extends FragmentActivity {
 		    
 		    if (fragNumber != sSize - 1) {
 	    		try {
-    				JSONArray mQuestion = new JSONArray(sQuestion);
 	    			for (int i = fragNumber * 7; i < fragNumber * 7 + 7 ; i++) {
 	    				TextView text1 = new TextView(getActivity());
-	    				text1.setText((i+1) + ". " + mQuestion.getJSONObject(i).getString("Title"));
-	    				//text1.setBackgroundColor(getResources().getColor(R.color.lightblue2));
-	    				text1.setTextColor(getResources().getColor(R.color.lightblue2));
+	    				text1.setText((i+1) + ". " + sQuestion.getJSONObject(i).getString("Title"));
+	    				text1.setTextColor(getResources().getColor(R.color.orange));
+		    			text1.setTypeface(text1.getTypeface(), Typeface.BOLD);
 
 	    				TextView text2 = new TextView(getActivity());
-	    				text2.setText(mQuestion.getJSONObject(i).getString("Answer"));
+	    				text2.setText(sQuestion.getJSONObject(i).getString("Answer"));
 
 	    				mLinearLayout.addView(text1, params);
 	    				mLinearLayout.addView(text2, params1);
@@ -268,15 +258,13 @@ public class ViewFormActivity extends FragmentActivity {
 		    }
 		    else {
 		    	try {
-    				JSONArray mQuestion = new JSONArray(sQuestion);
-		    		for (int i = fragNumber * 7; i < mQuestion.length() ; i++) {
+		    		for (int i = fragNumber * 7; i < sQuestion.length() ; i++) {
 	    				TextView text1 = new TextView(getActivity());
-	    				text1.setText((i+1) + ". " + mQuestion.getJSONObject(i).getString("Title"));
-	    				//text1.setBackgroundColor(getResources().getColor(R.color.lightblue2));
-	    				text1.setTextColor(getResources().getColor(R.color.lightblue2));
+	    				text1.setText((i+1) + ". " + sQuestion.getJSONObject(i).getString("Title"));
+	    				text1.setTextColor(getResources().getColor(R.color.orange));
 
 	    				TextView text2 = new TextView(getActivity());
-	    				text2.setText(mQuestion.getJSONObject(i).getString("Answer"));
+	    				text2.setText(sQuestion.getJSONObject(i).getString("Answer"));
 
 	    				mLinearLayout.addView(text1, params);
 	    				mLinearLayout.addView(text2, params1);
@@ -284,18 +272,13 @@ public class ViewFormActivity extends FragmentActivity {
 		    		
 		    		if (isManager) {
 		    			// feedback section
-		    			final JSONObject mDatabase = new JSONObject(sData);
 		    			final EditText editText = new EditText(getActivity());
 		    			try {
-		    				if (sFormType) 
-		    					editText.setText(mDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
-		    						getJSONObject(sPatientPosition).getJSONObject("Per-visit").getString("FeedBack"));
-		    				else
-		    					editText.setText(mDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
-			    						getJSONObject(sPatientPosition).getJSONObject("QuarterlyAssessment").getString("FeedBack"));
+		    				editText.setText(sFormArray.getJSONObject(sFormPosition).getString("FeedBack"));
 		    			} catch (JSONException e) {
 		    				editText.setHint("Feedbacks & Comments");
 		    			}
+		    			editText.setBackground(getResources().getDrawable(R.drawable.boxes));
 		    			mLinearLayout.addView(editText, params);
 
 		    			Button btnFeedback = new Button(getActivity());
@@ -309,49 +292,36 @@ public class ViewFormActivity extends FragmentActivity {
 		    				public void onClick(View v) {
 		    					String text = editText.getText().toString();
 		    					try {
-		    						if (sFormType)
-		    							mDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
-		    								getJSONObject(sPatientPosition).getJSONObject("Per-visit").put("FeedBack", text);
-		    						else
-		    							mDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
-	    									getJSONObject(sPatientPosition).getJSONObject("QuarterlyAssessment").put("FeedBack", text);
-		    							
+		    						sFormArray.getJSONObject(sFormPosition).put("FeedBack", text);
+
 		    						// save to file
-		    						OutputStream output  = new BufferedOutputStream(new FileOutputStream(sFiledir + "/" + FILENAME));
+		    						OutputStream output  = new BufferedOutputStream(new FileOutputStream(filedir + "/" + FILENAME));
 		    						OutputStreamWriter outputStreamWriter = new OutputStreamWriter(output);
 		    						BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
 
-		    						bufferedWriter.write(mDatabase.toString());
+		    						bufferedWriter.write(sDatabase.toString());
 		    						bufferedWriter.close();
 		    						output.close();
 
-		    						// return to displayclientactivity
+		    						// return to displayclient activity
 		    						Toast.makeText(getActivity(), "Successfully submitted!", Toast.LENGTH_SHORT).show();
-		    						Intent in = new Intent(getActivity(), DisplayClientActivity.class);
-		    						in.putExtra("position", sPosition);
-		    						in.putExtra("isManager", isManager);
-		    						startActivity(in);
+		    						getActivity().onBackPressed();
 		    					} catch (JSONException e) {Log.d("this:", " error"); }
 		    					catch (IOException e) {Log.d("ioexception", "eesdf"); };
 		    				}
 		    			});		
 		    		}
 		    		else {
-		    			final JSONObject mDatabase = new JSONObject(sData);
 		    			TextView mText = new TextView(getActivity());
 		    			mText.setText("Manager's Feedback:");
 		    			mText.setTextSize(18);
-		    			mText.setTextColor(getResources().getColor(R.color.lightblue2));
+		    			mText.setTextColor(getResources().getColor(R.color.orange));
+		    			mText.setTypeface(mText.getTypeface(), Typeface.BOLD);
 		    			mLinearLayout.addView(mText, params);
 		    			
 		    			final TextView text = new TextView(getActivity());
 		    			try {
-		    				if (sFormType)
-		    					text.setText(mDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
-		    						getJSONObject(sPatientPosition).getJSONObject("Per-visit").getString("FeedBack"));
-		    				else
-		    					text.setText(mDatabase.getJSONArray("PT").getJSONObject(sPosition).getJSONArray("Patient").
-			    						getJSONObject(sPatientPosition).getJSONObject("QuarterlyAssessment").getString("FeedBack"));
+		    				text.setText(sFormArray.getJSONObject(sFormPosition).getString("FeedBack"));
 		    			} catch (JSONException e) {
 		    				text.setText("There are no feedbacks from the managers!");
 		    			}
@@ -367,10 +337,7 @@ public class ViewFormActivity extends FragmentActivity {
 		    			btnBack.setOnClickListener(new OnClickListener(){
 		    				@Override
 		    				public void onClick(View v) {
-	    						Intent in = new Intent(getActivity(), DisplayClientActivity.class);
-	    						in.putExtra("position", sPosition);
-	    						in.putExtra("isManager", isManager);
-	    						startActivity(in);
+	    						getActivity().onBackPressed();
 		    				}
 		    			});
 		    		}

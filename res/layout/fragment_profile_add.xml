@@ -32,6 +32,8 @@
             android:layout_below="@+id/occupation"
             android:paddingTop="20dp"
             android:text="Birthdate"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -42,6 +44,8 @@
             android:layout_below="@+id/height"
             android:paddingTop="20dp"
             android:text="Age"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -52,6 +56,8 @@
             android:layout_below="@+id/age"
             android:paddingTop="20dp"
             android:text="Phone"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -63,6 +69,8 @@
             android:paddingTop="20dp"
             android:paddingBottom="30dp"
             android:text="Employer"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <EditText
@@ -126,6 +134,8 @@
 	        android:layout_alignBottom="@+id/getFirstName"
 	        android:layout_alignParentLeft="true"
 	        android:text="First Name"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
@@ -136,6 +146,8 @@
 	        android:layout_below="@+id/getFirstName"
 	        android:paddingTop="15dp"
 	        android:text="Last Name"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
@@ -146,6 +158,8 @@
 	        android:layout_below="@+id/id"
 	        android:paddingTop="20dp"
 	        android:text="Occupation"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <EditText
@@ -169,6 +183,8 @@
 	        android:layout_below="@+id/last"
 	        android:paddingTop="20dp"
 	        android:text="Client ID"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 	    
 	  	<EditText
@@ -251,6 +267,8 @@
 	        android:paddingTop="20dp"
 	        android:paddingLeft="10dp"
 	        android:text="Weight"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	    <TextView
@@ -263,6 +281,8 @@
 	        android:paddingLeft="10dp"
 	        android:paddingTop="20dp"
 	        android:text="Height"
+	        android:textStyle="bold"
+            android:textColor="@color/orange" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 	    
     </RelativeLayout>

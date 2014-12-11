@@ -59,17 +59,17 @@ public class DisplayClientActivity extends ActionBarActivity {
 	private boolean isManager;
 	private Activity mActivity = this;
 	final String[] PTCHOICE = {"Edit Client's Info.", "Per-visit Evaluation", "Quarterly Assessment",
-			"View Per-visit Form & Feedback", "View Quarterly Assessment & Feedback"};
+			"View Feedback"};
 	final String[] MANAGERCHOICE = {"Edit Client's Info.", "Per-visit Evaluation", "Quarterly Assessment",
-					"View Per-visit Form & Provide Feedback", "View Quarterly Assessment & Provide Feedback"};
+					"Provide Feedback & Comment"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_client);
 		// disable home button
-		getSupportActionBar ().setHomeButtonEnabled(false);
-		getSupportActionBar ().setDisplayHomeAsUpEnabled(false);
+		getSupportActionBar().setHomeButtonEnabled(false);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 	}
 	
 	@Override
@@ -161,13 +161,12 @@ public class DisplayClientActivity extends ActionBarActivity {
 				in.putExtra("employer", client.getEmployerName());
 				in.putExtra("filedir", getFilesDir() + "");
 				
-            	final Intent intent = new Intent(getApplicationContext(), ViewFormActivity.class);
+            	final Intent intent = new Intent(getApplicationContext(), ListFormActivity.class);
 				intent.putExtra("filedir", getFilesDir() + "");
 				intent.putExtra("position", mPosition);
 				intent.putExtra("patientPosition", mMapPosition.get(client.getClientID()));
 				
 				if (isManager == false) {
-					in.putExtra("isManager", false);
 					intent.putExtra("isManager", false);
 					AlertDialog.Builder alert = new AlertDialog.Builder(DisplayClientActivity.this);
 					alert.setTitle("What would you like to do?");
@@ -214,14 +213,8 @@ public class DisplayClientActivity extends ActionBarActivity {
 		            				overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 		            				break;
 			            		case 3 : 
-			            			intent.putExtra("per-visit", true);
 	            					startActivity(intent);
 	            					overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
-		            				break;
-			            		case 4 : 
-			            			intent.putExtra("per-visit", false);
-			            			startActivity(intent);
-			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 		            				break;
 			            	}
 			            }
@@ -235,7 +228,6 @@ public class DisplayClientActivity extends ActionBarActivity {
 				}
 				// manager view
 				else {
-					in.putExtra("isManager", true);
 					intent.putExtra("isManager", true);
 					AlertDialog.Builder alert = new AlertDialog.Builder(DisplayClientActivity.this);
 					alert.setTitle("What would you like to do?");
@@ -283,12 +275,6 @@ public class DisplayClientActivity extends ActionBarActivity {
 		            				overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 		            				break;
 			            		case 3 :
-			            			intent.putExtra("per-visit", true); 
-			            			startActivity(intent);
-			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
-			            			break;
-			            		case 4 : 
-			            			intent.putExtra("per-visit", false);
 			            			startActivity(intent);
 			            			overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 			            			break;
@@ -327,36 +313,35 @@ public class DisplayClientActivity extends ActionBarActivity {
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle presses on the action bar items
-	    switch (item.getItemId()) {
-	    	case R.id.action_sort:
-	    		return true;
-	        case R.id.action_last_name_az:
-	        	sortClients(0);
-	        	return true;
-	        case R.id.action_first_name_az:
-	        	sortClients(1);
-	            return true;
-	        case R.id.action_last_name_za:
-	        	sortClients(2);
-	            return true;
-	        case R.id.action_first_name_za:
-	        	sortClients(3);
-	            return true;
-	        case R.id.action_search:
-	            return true;
-	        case R.id.action_new:
-	        	addNewClient();
-	            return true;
-	        case R.id.action_log_out:
-	        	logout();
-	        	return true;
-	        case R.id.action_back:
-	        	super.onBackPressed();
-	        	return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+	    int itemId = item.getItemId();
+		if (itemId == R.id.action_sort) {
+			return true;
+		} else if (itemId == R.id.action_last_name_az) {
+			sortClients(0);
+			return true;
+		} else if (itemId == R.id.action_first_name_az) {
+			sortClients(1);
+			return true;
+		} else if (itemId == R.id.action_last_name_za) {
+			sortClients(2);
+			return true;
+		} else if (itemId == R.id.action_first_name_za) {
+			sortClients(3);
+			return true;
+		} else if (itemId == R.id.action_search) {
+			return true;
+		} else if (itemId == R.id.action_new) {
+			addNewClient();
+			return true;
+		} else if (itemId == R.id.action_log_out) {
+			logout();
+			return true;
+		} else if (itemId == R.id.action_back) {
+			super.onBackPressed();
+			return true;
+		} else {
+			return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	// implement add new client for menu
@@ -452,13 +437,13 @@ public class DisplayClientActivity extends ActionBarActivity {
                 				clientInfo.put("Employer", employer);
 
                 				newClient.put("PatientInfo", clientInfo);
-                				newClient.put("Per-visit", "");
-                				newClient.put("QuarterlyAssessment", "");
+                				newClient.put("Per-visit", new JSONArray());
+                				newClient.put("QuarterlyAssessment", new JSONArray());
                 				
                 				mDatabase.getJSONArray("PT").getJSONObject(mPosition).
                 										getJSONArray("Patient").put(newClient);
                 				
-                				deleteFile(FILENAME);
+                				//deleteFile(FILENAME);
                 				// save to file
                 				OutputStream output  = new BufferedOutputStream(new FileOutputStream((getFilesDir() + "/" + FILENAME)));
                 				OutputStreamWriter outputStreamWriter = new OutputStreamWriter(output);
@@ -472,7 +457,7 @@ public class DisplayClientActivity extends ActionBarActivity {
                 			} catch (IOException e) {
                 				Log.d("error 2", "IO");
                 			}
-                			
+                			mMapPosition.put(id, mClientArray.size() -1);
                 			closeDialog = true;
                 		}
                 	}

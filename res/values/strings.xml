@@ -21,11 +21,14 @@
     <string name="title_form_detail">Form Detail</string>
     <string name="title_section1">Client Profile</string>
     <string name="title_section2">Per-visit Evaluation</string>
-    <string name="title_section3">Quarterly Assessment Evaluation</string>
+    <string name="title_section3">Quarterly Assessment Evaluation</string>  
+    <string name="title_tab1">Per-visit Form</string>
+    <string name="title_tab2">Quarterly Assessment</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="splash_desc">Splash Screen</string>
+    <string name="action_view">View</string>
 
     <!-- Colors -->
     <color name="white">#F2F2F2</color>
@@ -40,7 +43,9 @@
     <color name="lightblue2">#0099CC</color>
     <color name="lightblue3">#3faaf4</color>
     <color name="orange">#fb9a24</color>
-
+    <color name="darkorange">#A65200</color>
+    <color name="lightorange">#F19132</color>
+    
     <string name="title_activity_display_client">Client List</string>
     <string name="action_sort">Sort</string>
     <string name="action_search">Search</string>
@@ -57,5 +62,6 @@
     <string name="eval_client">Evaluate</string>
     <string name="title_activity_view_form">View Form &amp; Give Feedback</string>
     <string name="action_back">Back</string>
+    <string name="title_activity_list_form">ListFormActivity</string>
 
 </resources>

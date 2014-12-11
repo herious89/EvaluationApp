@@ -34,9 +34,9 @@ public class ManagerActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_manager);
 		// disable home button
-		getSupportActionBar ().setHomeButtonEnabled(false);
-		getSupportActionBar ().setDisplayHomeAsUpEnabled(false);
-		
+		getSupportActionBar().setHomeButtonEnabled(false);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
 		mPTArray = new ArrayList<String>();
 		
 		try {

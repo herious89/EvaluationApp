@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import org.json.JSONArray;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -50,7 +52,6 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 	private HashMap<Integer, ArrayList<EditText>> mMapEditText = new HashMap<Integer, ArrayList<EditText>>();
 	private HashMap<Integer, ArrayList<CheckBox>> mMapCheckBox = new HashMap<Integer, ArrayList<CheckBox>>();
 	private HashMap<Integer, ArrayList<RadioButton>> mMapRadioButton = new HashMap<Integer, ArrayList<RadioButton>>();
-	private boolean isManager;
 	
 	@Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,7 +61,6 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
        filedir = in.getExtras().getString("filedir");
        mPosition = in.getExtras().getInt("position");
        mPatientPosition = in.getExtras().getInt("patientPosition");
-       isManager = in.getExtras().getBoolean("isManager");
        try {
     	   String database = "";
     	   InputStream is  = new BufferedInputStream(new FileInputStream(filedir + "/" + FILENAME));
@@ -76,7 +76,7 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
     	   }
     	   database = stringBuilder.toString();
     	   mDatabase = new JSONObject(database);
-    	   mQuestion = mDatabase.getJSONObject("DefaultForm").getJSONArray("QuestionArray");
+    	   mQuestion = mDatabase.getJSONObject("DefaultForm").getJSONObject("QuarterlyAssessment").getJSONArray("QuestionArray");
     	   is.close();
        } catch (IOException e1) {
     	   // TODO Auto-generated catch block
@@ -95,7 +95,8 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
     		   mQuestion.getJSONObject(i);
     		   TextView text = new TextView(getActivity());
     		   text.setText((i+1) + ". " + mQuestion.getJSONObject(i).getString("Title"));
-    		   text.setTextColor(getResources().getColor(R.color.lightblue2));
+    		   text.setTextColor(getResources().getColor(R.color.orange));
+    		   text.setTypeface(text.getTypeface(), Typeface.BOLD);
     	       mLinearLayout.addView(text, params);
     	       
     	       try {
@@ -133,6 +134,7 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
     	       try {
     	    	   EditText editText = new EditText(getActivity());
     	    	   editText.setHint(mQuestion.getJSONObject(i).getString("EditText"));
+    	    	   editText.setBackground(getResources().getDrawable(R.drawable.boxes));
     	    	   mEditText.add(editText);
     	    	   mLinearLayout.addView(editText, params);
     	    	   mMapEditText.put(i, mEditText);
@@ -206,16 +208,15 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 				try {
 					
 					// change
-//					mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
-//						getJSONObject(mPatientPosition).getJSONObject("QuarterlyAssessment").remove("QuestionArray");
-//					mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
-//					getJSONObject(mPatientPosition).getJSONObject("QuarterlyAssessment").put("QuestionArray", questionArray);
-					JSONObject form = mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
-							getJSONObject(mPatientPosition).getJSONObject("QuarterlyAssessment");
-					form.remove("QuestionArray");
-					form.put("Date", "MM/DD/YYYY");
-					form.put("VersionNumber", mDatabase.getJSONObject("DefaultForm").getString("VersionNumber"));
+					JSONArray formArray = mDatabase.getJSONArray("PT").getJSONObject(mPosition).getJSONArray("Patient").
+							getJSONObject(mPatientPosition).getJSONArray("QuarterlyAssessment");
+					JSONObject form = new JSONObject();
+					Calendar c = Calendar.getInstance();
+					String date = (c.get(Calendar.MONTH)+1) + "/" + c.get(Calendar.DATE) + "/" + c.get(Calendar.YEAR);
+					form.put("Date", date);
+					form.put("VersionNumber", mDatabase.getJSONObject("DefaultForm").getJSONObject("QuarterlyAssessment").getString("VersionNumber"));
 					form.put("QuestionArray", questionArray);
+					formArray.put(form);
 					
 					// save to file
 					OutputStream output  = new BufferedOutputStream(new FileOutputStream(filedir + "/" + FILENAME));
@@ -228,10 +229,7 @@ public class QuarterlyAssessmentFormFragment extends Fragment {
 					
 					// return to displayclientactivity
 					Toast.makeText(getActivity(), "Successfully submitted!", Toast.LENGTH_SHORT).show();
-					Intent in = new Intent(getActivity(), DisplayClientActivity.class);
-					in.putExtra("position", mPosition);
-					in.putExtra("isManager", isManager);
-					startActivity(in);
+					getActivity().onBackPressed();
 				} catch (JSONException e) {Log.d("this:", " error"); }
 				catch (IOException e) {Log.d("ioexception", "eesdf"); };
 			}
