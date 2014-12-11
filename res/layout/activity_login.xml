@@ -3,14 +3,6 @@
     tools:context="com.example.ptevalform.LoginActivity" >
 
 	    <!-- Login progress -->
-	    
-	     <ImageView
-        android:id="@+id/Splash"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:src="@drawable/splash" 
-        android:scaleType="fitXY"
-        android:contentDescription="@string/splash_desc"/>
 	
 	    <LinearLayout
 	        android:id="@+id/login_status"

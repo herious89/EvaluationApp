@@ -86,7 +86,7 @@ public class LoginActivity extends Activity {
 	            return (float)Math.floor(input*frameCount)/frameCount;
 	        }
 	    });
-	    a.setDuration(100);
+	    a.setDuration(500);
 		
 		// Set up the login form.
 		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
@@ -244,20 +244,6 @@ public class LoginActivity extends Activity {
 			cancel = true;
 		}
 		
-//		try {
-//			mPT = mDatabase.getJSONArray("PT");
-//			isFound = false;
-//			mPosition = 0;
-//		for (int i = 0; i < mPT.length(); i++) {
-//			if (mEmail.equalsIgnoreCase(mPT.getJSONObject(i).getString("username")) &&
-//					mPassword.equals(mPT.getJSONObject(i).getString("password"))) {
-//				isFound = true;
-//				mPosition = i;
-//			}
-//		}
-//		} catch (JSONException e) {
-//			Log.d("this is", "JSON error");
-//		}
 		if (cancel) {
 			// There was an error; don't attempt login and focus the first
 			// form field with an error.
@@ -267,6 +253,7 @@ public class LoginActivity extends Activity {
 			// Show a progress spinner, and kick off a background task to
 			// perform the user login attempt.
 			mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
+			mLoginStatusMessageView.setTextColor(getResources().getColor(R.color.orange));
 			showProgress(true);
 			mAuthTask = new UserLoginTask();
 			mAuthTask.execute((Void) null);

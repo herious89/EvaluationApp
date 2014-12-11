@@ -30,7 +30,7 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.main_splash_screen);
 		
 		// ignore top bar for splash 
-		getActionBar().hide();
+		//getActionBar().hide();
 		
 		// shared prefs to record first time app is fired up
 	    SharedPreferences settings = getSharedPreferences("prefs", 0);
